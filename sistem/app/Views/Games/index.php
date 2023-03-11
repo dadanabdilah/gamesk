@@ -27,14 +27,14 @@
                                                 <img src="<?= base_url(); ?>/assets/images/games/<?= $games['image']; ?>" class="mb-3" style="display: block; margin: 0 auto; border-radius: 10px !important;" width="80px" height="80px">
                                             </div>
                                             <div class="col text-left">
-                                                <h4 class=" mb-0" style="font-size:;"><?= $games['games']; ?></h4>
-                                                <p class="text-left mt-0"><?= $games['subtitle']; ?></p>
+                                                <h4 class="ml-4 mb-0" style="font-size:;"><?= $games['games']; ?></h4>
+                                                <p class="text-left ml-4 mt-0"><?= $games['subtitle']; ?></p>
                                             </div>
                                         </div>
 
                                         <div class="d-md sm-none">
                                             <img src="<?= base_url(); ?>/assets/images/games/<?= $games['image']; ?>" class="mb-3" style="display: block; margin: 0 auto; border-radius: 10px !important;" width="80px" height="80px">
-                                            <h4 class=" mb-0" style="font-size:;"><?= $games['games']; ?></h4>
+                                            <h4 class="mb-0"><?= $games['games']; ?></h4>
                                             <p class="mt-0"><?= $games['subtitle']; ?></p>
                                         </div>
 
@@ -68,7 +68,7 @@
 
                                         <div class="text-white text-center position-absolute num-page">1</div>
 
-                                        <h5 style="margin-left: 55px; margin-top: 10px;">Lengkapi Data</h5>
+                                        <h5 class="intruction" style="margin-left: 55px; margin-top: 10px;">Lengkapi Data</h5>
 
                                         <?= $this->include('Target/' . $games['target']); ?>
 
@@ -86,7 +86,7 @@
 
                                         <div class="text-white text-center position-absolute num-page">2</div>
 
-                                        <h5 style="margin-left: 55px; margin-top: 10px;">Pilih Nominal Layanan</h5>
+                                        <h5 class="intruction" style="margin-left: 55px; margin-top: 10px;">Pilih Nominal</h5>
 
                                         <div class="row pt-4 pr-2 mb-2">
 
@@ -109,6 +109,7 @@
                                             <?php endif ?>
 
                                             <?php foreach ($product as $loop): ?>
+                                            <?php if ($loop['status'] == 'On'): ?>
 
                                             <div class="col-sm-4 col-6">
 
@@ -118,46 +119,23 @@
 
                                                     <div class="row">
 
-                                                        <div class="col">
-
-                                                        <div id="product-236" class="pt-2 pb-2 pe-2 ps-3 cursor-pointer product-list active" onclick="select_product('236');">
-
-                                                            <table class="w-100">
-
-                                                                <tbody>
-
-                                                                    <tr>
-
-                                                                        <td class="pe-1">
-
-                                                                            <b class="d-block fw-bold"><?= $loop['product']; ?></b>
-
-                                                                            <b>Rp <?= $loop['price']; ?>,-</b>
-
-                                                                        </td>
-
-                                                                        <td class="text-end">
-
-                                                                            <img src="<?= $loop['logo_url'] ?>" alt="" width="28">
-
-                                                                        </td>
-
-                                                                    </tr>
-
-                                                                </tbody>
-
-                                                            </table>
-
-                                                        </div>
-
-                                                    </div>
+                                                        <div class="col-12">
+                    										<div class="cursor-pointer product-list active text-center">
+                                                                <div class="mx-auto">
+                                                                    <img src="<?= $loop['logo_url'] ?>" class="mb-2" alt="" width="35">
+                                                                    <b class="d-block text-dark num-produk"><?= $loop['product']; ?></b>
+                        										    <span>Rp <?= $loop['price']; ?>,-</span>
+                                                                </div>
+                    										</div>
+                    									</div>
 
                                                     </div>
 
                                                 </label>
 
                                             </div>
-
+                                            
+                                            <?php endif ?>
                                             <?php endforeach ?>
 
                                             <div class="col-md-12 mt-3 <?= $games['target'] == 'joki' ? '' : 'd-none'; ?>">
@@ -184,18 +162,16 @@
 
                                         <div class="text-white text-center position-absolute num-page">3</div>
 
-                                        <h5 style="margin-left: 55px; margin-top: 10px;">Pilih Pembayaran</h5>
+                                        <h5 class="intruction" style="margin-left: 55px; margin-top: 10px;">Pilih Pembayaran</h5>
 
 
 
                                         <div id="main">
 
-                                            <div class="container">
-
-                                                <div class="accordion" id="faq">
+                                            <div class="accordion" id="faq">
 
                                                     <?php if($users) { ?>
-                                                        <div class="card">
+                                                        <div class="card shadow">
 
                                                             <div class="card-header" id="faqhead1">
 
@@ -206,7 +182,7 @@
 
                                                             </div>
 
-                                                            <div id="faq1" class="collapse show" aria-labelledby="faqhead1" data-parent="#faq">
+                                                            <div id="faq1" class="collapse" aria-labelledby="faqhead1" data-parent="#faq">
 
                                                                 <div class="card-body">
 
@@ -260,14 +236,14 @@
 
                                                             </div>
 
-                                                            <div class="bg-white p-2 text-end border-top" style="border-radius: 0 0 6px 6px;">
+                                                            <div class="bg-hijau p-2 text-end border-top" style="border-radius: 0 0 6px 6px;">
                                                                 <img src="<?= base_url(); ?>/assets/images/method/balance.png" alt="" width="64">
                                                             </div>
 
                                                         </div>
                                                     <?php } ?>
 
-                                                    <div class="card">
+                                                    <div class="card shadow">
 
                                                         <div class="card-header" id="faqhead2">
 
@@ -334,7 +310,7 @@
 
                                                         </div>
 
-                                                        <div class="bg-white p-2 text-end border-top" style="border-radius: 0 0 6px 6px;">
+                                                        <div class="bg-hijau p-2 text-end border-top" style="border-radius: 0 0 6px 6px;">
                                                             
                                                         <?php foreach ($method as $loop): ?>
                                                         
@@ -349,17 +325,13 @@
                                                         </div>
 
                                                     </div>
-
-
-
-                                                    <div class="card">
+                                                    
+                                                    <div class="card shadow">
 
                                                         <div class="card-header" id="faqhead3">
 
-                                                            <a href="#" class="btn btn-header-link pt-4 collapsed" data-toggle="collapse" data-target="#faq3"
-
-                                                                aria-expanded="true" aria-controls="faq3">
-                                                                <i class="fas fa-solid fa-money-check"></i>    
+                                                            <a href="#" class="btn btn-header-link pt-4 collapsed" data-toggle="collapse" data-target="#faq3" aria-expanded="true" aria-controls="faq3">
+                                                                <i class="fas fa-solid fa-money-check"></i>
                                                                 Bank Transfer
                                                             </a>
 
@@ -369,55 +341,59 @@
 
                                                             <div class="card-body">
 
-                                                            <?php foreach ($method as $loop): ?>
+                                                                <div class="row pt-4 pr-2 mb-2">
 
-                                                                <?php if($loop['category'] == 'Bank Transfer') { ?>
+                                                                    <?php foreach ($method as $loop): ?>
 
-                                                                <div class="col-sm-12 col-12">
+                                                                    <?php if($loop['category'] == 'Bank Transfer') { ?>
 
-                                                                    <input class="radio-nominal" type="radio" name="method" value="<?= $loop['id']; ?>" id="method-<?= $loop['id']; ?>">
+                                                                    <div class="col-sm-12 col-12">
 
-                                                                    <label id="method-<?= $loop['id']; ?>">
+                                                                        <input class="radio-nominal" type="radio" name="method" value="<?= $loop['id']; ?>" id="method-<?= $loop['id']; ?>">
+                                                                        
+                                                                        <label for="method-<?= $loop['id']; ?>">
 
-                                                                        <div class="row">
+                                                                            <div class="row">
 
-                                                                            <div class="col-6">
+                                                                                <div class="col-6">
 
-                                                                                <div class="ml-2 mr-2 pb-0">
+                                                                                    <div class="ml-2 mr-2 pb-0">
 
-                                                                                    <img src="<?= base_url(); ?>/assets/images/method/<?= $loop['image']; ?>" class="rounded img-fluid mb-1" style="height: 40px;">
+                                                                                        <img src="<?= base_url(); ?>/assets/images/method/<?= $loop['image']; ?>" class="rounded img-fluid mb-1" style="height: 40px;">
 
-                                                                                    <p class="m-0" style="font-weight: normal;"><?= $loop['method']; ?></p>
+                                                                                        <p class="m-0" style="font-weight: normal;"><?= $loop['method']; ?></p>
+
+                                                                                    </div>
+
+                                                                                </div>
+
+                                                                                <div class="col-6">
+
+                                                                                    <div class="ml-2 mt-2 text-right">
+
+                                                                                        <p class="mb-0" style="font-weight: bold; font-size: 13px;" id="price-method-<?= $loop['id']; ?>"></p>
+
+                                                                                    </div>
 
                                                                                 </div>
 
                                                                             </div>
 
-                                                                            <div class="col-6">
+                                                                        </label>
 
-                                                                                <div class="ml-2 mt-2 text-right">
+                                                                    </div>
 
-                                                                                    <p class="mb-0" style="font-weight: bold; font-size: 13px;" id="price-method-<?= $loop['id']; ?>"></p>
+                                                                    <?php } ?>
 
-                                                                                </div>
-
-                                                                            </div>
-
-                                                                        </div>
-
-                                                                    </label>
+                                                                    <?php endforeach ?>
 
                                                                 </div>
-
-                                                                <?php } ?>
-
-                                                                <?php endforeach ?>
 
                                                             </div>
 
                                                         </div>
 
-                                                        <div class="bg-white p-2 text-end border-top" style="border-radius: 0 0 6px 6px;">
+                                                        <div class="bg-hijau p-2 text-end border-top" style="border-radius: 0 0 6px 6px;">
                                                             
                                                         <?php foreach ($method as $loop): ?>
                                                         
@@ -432,10 +408,8 @@
                                                         </div>
 
                                                     </div>
-
                                                     
-
-                                                    <div class="card">
+                                                    <div class="card shadow">
 
                                                         <div class="card-header" id="faqhead4">
 
@@ -478,7 +452,7 @@
 
                                                                             <div class="col-6">
 
-                                                                                <div class="ml-2 mt-2 text-right">
+                                                                                <div class="ml-2 mt-1 text-right">
 
                                                                                     <p class="mb-0" style="font-weight: bold; font-size: 13px;" id="price-method-<?= $loop['id']; ?>"></p>
 
@@ -500,13 +474,13 @@
 
                                                         </div>
 
-                                                        <div class="bg-white p-2 text-end border-top" style="border-radius: 0 0 6px 6px;">
+                                                        <div class="bg-hijau p-2 text-end border-top" style="border-radius: 0 0 6px 6px;">
                                                             
                                                         <?php foreach ($method as $loop): ?>
                                                         
                                                         <?php if($loop['category'] == 'Virtual Account') { ?>
                                                         
-                                                            <img src="<?= base_url(); ?>/assets/images/method/<?= $loop['image']; ?>" alt="" width="64">
+                                                            <img src="<?= base_url(); ?>/assets/images/method/<?= $loop['image']; ?>" class="mb-2" alt="" width="64">
                                                         
                                                         <?php } ?>
 
@@ -518,7 +492,7 @@
 
 
 
-                                                    <div class="card">
+                                                    <div class="card shadow">
 
                                                         <div class="card-header" id="faqhead5">
 
@@ -583,7 +557,7 @@
 
                                                         </div>
 
-                                                        <div class="bg-white p-2 text-end border-top" style="border-radius: 0 0 6px 6px;">
+                                                        <div class="bg-hijau p-2 text-end border-top" style="border-radius: 0 0 6px 6px;">
                                                             
                                                         <?php foreach ($method as $loop): ?>
                                                         
@@ -603,8 +577,6 @@
 
                                                 </div>
 
-                                            </div>
-
                                         </div>
 
                                         
@@ -616,51 +588,33 @@
                             </div>
 
                             <div class="pb-3">
-
                                 <div class="section">
-
                                     <div class="card-body shadow">
-
                                         <div class="text-white text-center position-absolute num-page">4</div>
-
-                                        <h5 style="margin-left: 55px; margin-top: 10px;">Bukti Pembelian</h5>
-
+                                        <h5 class="intruction" style="margin-left: 55px; margin-top: 10px;">Bukti Pembelian</h5>
                                         <div class="form-group pt-4">
-
-
-
                                             <input type="number" name="wa" placeholder="Masukan No. Whatsapp" class="form-control" value="" required>
-
-
-
-                                            <small class="mt-2 d-block mb-3">
-
-                                                Dengan membeli otomatis saya menyutujui <a href="<?= base_url(); ?>/syarat-ketentuan/" target="_blank" class="text-warning">Ketentuan Layanan</a>.
-
-                                            </small>
-
+                                                <small class="mt-2 d-block mb-3">
+                                                    Bukti pembayaran atas pembelian anda akan kami kirimkan ke WhatsApp anda.
+                                                </small>
                                             <button type="button" class="btn btn-primary text-white" id="btn-cek" onclick="process_order();">
                                                 <i class="fas fa-solid fa-cart-plus"></i>
                                                 Beli Sekarang
                                             </button>
-
                                         </div>
-
                                     </div>
-
                                 </div>
-
                             </div>
 
                             <div class="modal fade" id="modal-detail">
 
                                 <div class="modal-dialog modal-dialog-centered">
 
-                                    <div class="modal-content text-white animated bounceIn" style="background: var(--warna_2);">
+                                    <div class="modal-content text-dark animated bounceIn" style="background: var(--warna_2);">
 
                                         <div class="card-header border-bottom-0">
 
-                                            <h5 class="text-white">Detail Pembelian</h5>
+                                            <h5 class="text-dark">Detail Pembelian</h5>
 
                                         </div>
 

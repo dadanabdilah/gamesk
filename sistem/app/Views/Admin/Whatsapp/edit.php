@@ -6,11 +6,11 @@
 				<?php $this->section('content'); ?>
 
 				<div class="row">
-					<div class="col-lg-10 mx-auto">
+					<div class="col-lg-10 pt-4">
 						<?= alert(); ?>
 						<div class="card shadow mb-4">
-							<div class="card-header py-3">
-								<h6 class="m-0 font-weight-bold text-primary">Edit Pesan <?= $whatsapp['type'] ?></h6>
+							<div class="card-header">
+								<h5>Edit Pesan <?= $whatsapp['type'] ?></h5>
 							</div>
 							<div class="card-body">
 								<form action="<?= base_url('/admin/whatsapp/add') ?>" method="POST">
@@ -31,7 +31,7 @@
 										<label class="col-form-label text-dark">Pesan</label>
 										<textarea rows="10" class="form-control" name="template"><?= $whatsapp['template'] ?></textarea>
 									</div>
-									<div class="text-right">
+									<div class="text-right pt-3">
 										<input type="hidden" name="id" value="<?= $whatsapp['id'] ?>">
 										<a href="<?= base_url(); ?>/admin/whatsapp" class="btn btn-warning">Kembali</a>
 										<button class="btn btn-primary" type="submit" name="tombol" value="submit">Simpan</button>

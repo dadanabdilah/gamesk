@@ -5,15 +5,12 @@
 				
 				<?php $this->section('content'); ?>
 						<div class="row">
-							<div class="col-lg-10 mx-auto">
+							<div class="col-lg-10 mt-4">
 							    <?= alert(); ?>
-								<div class="card shadow mb-4">
-								    <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Level Member</h6>
+							    <div class="card-header py-3">
+                                        <h5>Harga Level Member</h5>
                                     </div>
-									<div class="card-body">
-										<!-- <a href="<?= base_url(); ?>/admin/pengguna/add" class="btn btn-primary">Tambah Level</a> -->
-									</div>
+								<div class="card shadow mb-4">
 									<div class="table-responsive">
 										<table class="table-white table table-striped">
 											<tr class="bg-primary text-white">
@@ -27,10 +24,17 @@
 												<td><?= $no++; ?></td>
 												<td><?= $loop['level_name']; ?></td>
 												<td>Rp <?= number_format($loop['price'],0,',','.'); ?></td>
-												<td class="d-sm-flex m-2" width="10">
-													<a href="<?= base_url(); ?>/admin/level/edit/<?= $loop['id']; ?>" class="btn btn-primary btn-sm mr-2">
-													    <i class="fas fa-fw fa-edit"></i>
-													</a>
+												<td>
+													<div class="dropdown">
+                                                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                              <i class="ti ti-dots-vertical"></i>
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                              <a class="dropdown-item" href="<?= base_url(); ?>/admin/level/edit/<?= $loop['id']; ?>"
+                                                                ><i class="ti ti-pencil me-1"></i> Edit</a
+                                                              >
+                                                            </div>
+                                                    </div>
 												</td>
 											</tr>
 											<?php endforeach ?>

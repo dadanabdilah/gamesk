@@ -5,19 +5,18 @@
 				
 				<?php $this->section('content'); ?>
 						<div class="row">
-							<div class="col-lg-10 mx-auto">
+							<div class="col-lg-10 mt-4">
 							    <?= alert(); ?>
 								<div class="card shadow mb-4">
 								    <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Game Populer</h6>
+                                        <h5>Game Populer</h5>
                                     </div>
 									<div class="card-body">
-										<a href="<?= base_url(); ?>/admin/gamepopuler/add" class="btn btn-primary">Tambah Game Populer</a>
-										
+										<a href="<?= base_url(); ?>/admin/gamepopuler/add" class="btn btn-sm btn-primary">Tambah Game Populer</a>
 									</div>
 									<div class="table-responsive">
 										<table class="table-white table table-striped">
-											<thead class="bg-primary text-white">
+											<thead>
     										    <tr>
     												<th width="10">No</th>
     												<th>Games</th>

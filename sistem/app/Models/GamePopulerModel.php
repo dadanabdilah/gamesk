@@ -14,7 +14,7 @@ class GamePopulerModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['game_id'];
+    protected $allowedFields    = ['game_id','games'];
 
     // Dates
     protected $useTimestamps = false;

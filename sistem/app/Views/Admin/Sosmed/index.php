@@ -5,11 +5,11 @@
 				
 				<?php $this->section('content'); ?>
 						<div class="row">
-							<div class="col-lg-10 mx-auto">
+							<div class="col-lg-10 mt-4">
 
 								<div class="card shadow mb-4">
 								    <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Bantuan</h6>
+                                        <h5>Bantuan</h5>
                                     </div>
 									<div class="card-body">
 										
@@ -34,12 +34,18 @@
 												</td>
 												<td><?= $loop['link']; ?></td>
 												<td class="d-sm-flex" width="10">
-													<a href="<?= base_url(); ?>/admin/sosmed/edit/<?= $loop['id']; ?>" class="btn btn-primary btn-sm mr-2">
-													    <i class="fas fa-fw fa-edit"></i>
-													</a>
-													<button type="button" onclick="hapus('<?= base_url(); ?>/admin/sosmed/delete/<?= $loop['id']; ?>');" class="btn btn-danger btn-sm ms-2">
-													    <i class="fas fa-fw fa-trash"></i>
-													</button>
+													<div class="dropdown">
+                                                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                              <i class="ti ti-dots-vertical"></i>
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                              <a class="dropdown-item" href="<?= base_url(); ?>/admin/sosmed/edit/<?= $loop['id']; ?>"
+                                                                ><i class="ti ti-pencil me-1"></i> Edit</a
+                                                              >
+                                                              <a class="dropdown-item" onclick="hapus('<?= base_url(); ?>/admin/sosmed/delete/<?= $loop['id']; ?>');">
+                                                                  <i class="ti ti-trash me-1"></i> Delete</a>
+                                                            </div>
+                                                        </div>
 												</td>
 											</tr>
 											<?php endforeach ?>

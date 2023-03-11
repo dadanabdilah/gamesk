@@ -5,28 +5,26 @@
 				
 				<?php $this->section('content'); ?>
 				                <div class="row">
-									<div class="col-lg-10 mx-auto">
+									<div class="col-lg-10 mt-4">
 									    <?= alert(); ?>
         								<div class="card shadow mb-4">
         								    <div class="card-header py-3">
-                                                <h6 class="m-0 font-weight-bold text-primary">Tambah Game populer</h6>
+                                                <h5>Tambah Game populer</h5>
                                             </div>
 											<div class="card-body">
 												
 												<form action="<?= base_url('admin/gamepopuler/add') ?>" method="POST" enctype="multipart/form-data">
-													<div class="form-group row">
-														<label class="col-form-label col-md-4 text-dark">Pilih Game</label>
-														<div class="col-md-8">
+													<div class="mb-3">
+														<label for="defaultFormControlInput" class="form-label">Pilih Game</label>
 															<select class="form-control" id="game_id" name="game_id">
 																<?php foreach($game as $key => $value){ ?>
 																	<option value="<?= $value['id'] ?>" ><?= $value['games'] ?></option>
 																<?php } ?>
 															</select>
-														</div>
 													</div>
-													<a href="<?= base_url(); ?>/admin/gamepopuler" class="btn btn-warning float-left">Kembali</a>
+													
 													<div class="text-right">
-														<button class="btn text-dark" type="reset">Batal</button>
+														<a href="<?= base_url(); ?>/admin/gamepopuler" class="btn btn-warning float-left">Kembali</a>
 														<button class="btn btn-primary" type="submit" name="tombol" value="submit">Simpan</button>
 													</div>
 												</form>

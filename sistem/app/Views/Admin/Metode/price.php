@@ -6,18 +6,15 @@
 				<?php $this->section('content'); ?>
 
 								<div class="row">
-									<div class="col-lg-10 mx-auto">
+									<div class="col-lg-10 mt-4">
 									    <?= alert(); ?>
         								<div class="card shadow mb-4">
         								    <div class="card-header py-3">
-                                                <h6 class="m-0 font-weight-bold text-primary">Kostum Harga</h6>
+                                                <h5>Kostum Harga</h5>
                                             </div>
-											<div class="card-body">
-												
-											</div>
 											<form action="" method="POST">
 												<table class="table table-white">
-													<tr class="bg-primary text-white">
+													<tr>
 														<th>Metode</th>
 														<th>Harga Member</th>
 														<th>Harga Reseller</th>
@@ -39,9 +36,9 @@
 													<?php endforeach ?>
 												</table>
 												<div class="card-body">
-													<a href="<?= base_url(); ?>/admin/produk" class="btn btn-warning float-left">Kembali</a>
+													
 													<div class="text-right">
-														<button class="btn text-white" type="reset">Batal</button>
+														<a href="<?= base_url(); ?>/admin/produk" class="btn btn-warning float-left">Kembali</a>
 														<button class="btn btn-primary" type="submit" name="tombol" value="submit">Simpan</button>
 													</div>
 												</div>

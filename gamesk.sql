@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1deb5ubuntu1
+-- version 4.9.11
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 21, 2023 at 05:45 PM
--- Server version: 10.6.11-MariaDB-0ubuntu0.22.04.1
--- PHP Version: 8.1.2-1ubuntu2.10
+-- Waktu pembuatan: 01 Mar 2023 pada 21.05
+-- Versi server: 10.3.37-MariaDB-cll-lve
+-- Versi PHP: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `gamesk`
+-- Database: `adriansa_db`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Struktur dari tabel `admin`
 --
 
 CREATE TABLE `admin` (
@@ -37,17 +38,17 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `admin`
+-- Dumping data untuk tabel `admin`
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `status`, `permission`, `date_create`) VALUES
 (5, 'admin', '$2y$10$4.UnWxxP9DGJnDmLUvsTWeEXLzl4af36HQBWlj7.xHK1Zgm6SIlIG', 'On', 'Konfigurasi,Admin,Games,Kategori,Produk,Pesanan,Topup,Metode,Pengguna,Sosmed', '2022-11-17 10:56:51'),
-(10, 'renaldi', '$2y$10$Nz5WW.HoTK23HBZIBrab8ed35IAMS4lrqGVuQztJ0pgrPsEvDJLHq', 'On', 'Konfigurasi,Admin,Games,Kategori,Produk,Pesanan,Topup,Metode,Pengguna', '2022-12-24 23:52:29');
+(10, 'renaldi', '$2y$10$Nz5WW.HoTK23HBZIBrab8ed35IAMS4lrqGVuQztJ0pgrPsEvDJLHq', 'On', 'Konfigurasi,Admin,Games,Kategori,Produk,Pesanan,Topup,Metode,Pengguna,Sosmed', '2022-12-24 23:52:29');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `banner`
+-- Struktur dari tabel `banner`
 --
 
 CREATE TABLE `banner` (
@@ -56,21 +57,17 @@ CREATE TABLE `banner` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `banner`
+-- Dumping data untuk tabel `banner`
 --
 
 INSERT INTO `banner` (`id`, `image`) VALUES
-(6, '1676971878_0e015a5952e12f08e886.png'),
-(7, '1676971891_e6519b60114f3e5957db.png'),
-(8, '1676971901_ccac390f54c568762874.png'),
-(9, '1676971908_70859583a4958dffb2b9.png'),
-(10, '1676971925_eb1fc684f34ba40555ad.png'),
-(11, '1676971933_aa256ff26b88d56ccdf9.png');
+(1, '1677649336_236ac5535bf632c36a70.png'),
+(2, '1677649355_538691a77f97620056bd.png');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `callback`
+-- Struktur dari tabel `callback`
 --
 
 CREATE TABLE `callback` (
@@ -80,7 +77,7 @@ CREATE TABLE `callback` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `callback`
+-- Dumping data untuk tabel `callback`
 --
 
 INSERT INTO `callback` (`id`, `data`, `signature`) VALUES
@@ -92,7 +89,7 @@ INSERT INTO `callback` (`id`, `data`, `signature`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category`
+-- Struktur dari tabel `category`
 --
 
 CREATE TABLE `category` (
@@ -103,18 +100,17 @@ CREATE TABLE `category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `category`
+-- Dumping data untuk tabel `category`
 --
 
 INSERT INTO `category` (`id`, `icon`, `category`, `sort`) VALUES
-(24, 'fas fa-regular fa-microchip', 'Proses Manual', 3),
-(26, 'fas fa-solid fa-gamepad', 'TopUp Games', 2),
-(27, 'fas fa-regular fa-fire', 'Populer', 1);
+(27, 'fas fa-regular fa-fire', 'Populer', 1),
+(29, 'fas fa-regular fa-gamepad', 'Proses Manual', 2);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `games`
+-- Struktur dari tabel `games`
 --
 
 CREATE TABLE `games` (
@@ -133,48 +129,51 @@ CREATE TABLE `games` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `games`
+-- Dumping data untuk tabel `games`
 --
 
 INSERT INTO `games` (`id`, `games`, `subtitle`, `category`, `image`, `slug`, `target`, `sort`, `konten`, `status`, `check_status`, `check_code`) VALUES
-(1, 'Mobile Legends', 'Otomatis', 'Populer', '1671937847_89e9dc8ac0cc765b6df2.png', 'mobile-legends', 'ml', 1, '<ol>\r\n	<li>Masukkan ID dan Server Kamu.</li>\r\n	<li>Pilih Nominal Diamonds</li>\r\n	<li>Pilih pembayaran</li>\r\n	<li>Isi nomor telepon / whatsapp</li>\r\n	<li>Selesaikan pembayaran</li>\r\n	<li>Diamonds akan ditambahkan ke akun Mobile Legends kamu</li>\r\n</ol>', 'On', 'Y', 'Mobile Legends'),
-(2, 'Free Fire', 'Otomatis', 'Populer', '1671937831_22c6c88a61a854648631.png', 'free-fire', 'default', 2, '', 'On', 'Y', 'Free Fire'),
-(3, 'PUBG Mobile', '', 'TopUp Games', '1671802682_7525b8f700eb8fa232c3.png', 'pubg-mobile', 'default', 3, '', 'On', 'N', ''),
-(4, 'Genshin Impact', 'Otomatis', 'Populer', '1671802953_d8772d93630ae8107eef.png', 'genshin-impact', 'gi', 4, '', 'On', 'Y', 'gensin'),
-(5, 'Apex Legends', '', 'Populer', '1671803187_969566bdbcb3e1cc0b28.png', 'apex-legends-mobile', 'default', 5, '', 'On', 'Y', ''),
-(6, 'Call Of Duty Mobile', '', 'TopUp Games', '1671803327_4945c56bac61d8ee3859.png', 'call-of-duty-mobile', 'default', 6, '', 'On', 'Y', ''),
-(7, 'Dragon Raja', '', 'Populer', '1671803359_502efa95d2cf0ea994f4.png', 'dragon-raja', 'default', 7, '', 'On', 'Y', ''),
-(8, 'Higgs Domino', 'Poker City', 'Populer', '1671937817_b026a639c4228d944791.png', 'higgs-domino', 'default', 8, '', 'On', 'Y', ''),
-(9, 'Life After', '', 'TopUp Games', '1671803405_1508391c58bcb7ec94ff.png', 'life-after', 'default', 9, '', 'On', 'Y', ''),
-(10, 'Sausage Man', '', 'TopUp Games', '1671803439_5eb1f353c98126bf42ed.png', 'sausage-man', 'default', 10, '', 'On', 'Y', ''),
-(11, 'Tower Of Fantasy', '', 'TopUp Games', '1671803466_3f84fcb4449a7e33824f.png', 'tower-of-fantasy', 'default', 11, '', 'On', 'Y', ''),
-(12, 'Omega Legends', '', 'TopUp Games', '1671937793_db7396790c5771954ff3.png', 'omega-legends', 'default', 12, '', 'On', 'Y', ''),
-(14, 'Gift Skin', '', 'Proses Manual', '1671937764_233b34f74e79e7e23da8.png', 'gift-skin', 'ml', 1, '', 'On', 'Y', 'Mobile Legends'),
-(15, 'Promo Khusus', '', 'Proses Manual', '1671934891_1936a9230afe483e53dc.png', 'promo-khusus-1212', 'default', 1, '', 'On', 'Y', ''),
-(16, 'Joki Rank Fast', '', 'Proses Manual', '1672101364_5c856ce3fd50cfe94e22.png', 'joki-rank-fast', 'joki', 1, '<p><strong>Catatan Penting :</strong><br />\r\n<br />\r\n1. Matikan Verifikasi Akun untuk mempermudah Penjoki Login.<br />\r\n2. Jika akun di login tanpa Izin , maka proses Joki akan dibatalkan dan Uang Pembeli akan hangus.<br />\r\n3. Dimohon Menunggu Sesuai Estimasi Proses Dan Jangan Spam Admin.<br />\r\n4. Jika ada Problem saat login ke Akun, maka akan segera di Hubungi oleh Admin.<br />\r\n5. Jika Akun belum di Proses selama 6 Jam harap Hubungi Admin.<br />\r\n6. Jika Proses Joki sudah selesai maka akan dihubungi Oleh Admin.<br />\r\n<br />\r\n<strong>Jika Butuh Bantuan Harap Hubungi Admin CGames,<br />\r\nTerimakasih.</strong></p>', 'On', 'N', '');
+(1, 'Mobile Legends', 'Otomatis', 'Populer', '1677652960_0ee75c5fdf7139e91856.png', 'mobile-legends', 'ml', 1, '<ol>\r\n	<li>Masukkan ID dan Server Kamu.</li>\r\n	<li>Pilih Nominal Diamonds</li>\r\n	<li>Pilih pembayaran</li>\r\n	<li>Isi nomor telepon / whatsapp</li>\r\n	<li>Selesaikan pembayaran</li>\r\n	<li>Diamonds akan ditambahkan ke akun Mobile Legends kamu</li>\r\n</ol>', 'On', 'Y', 'mobilelegends'),
+(2, 'Free Fire', 'Otomatis', 'Populer', '1677652946_7d33cd5b796e74157729.png', 'free-fire', 'default', 2, '', 'On', 'Y', 'Free Fire'),
+(3, 'PUBG Mobile', '', 'Populer', '1677652931_cb1e6b7973f3288fd720.png', 'pubg-mobile', 'default', 3, '', 'On', 'N', ''),
+(4, 'Genshin Impact', 'Otomatis', 'Populer', '1677653000_74d451d7e5191a1cffbc.png', 'genshin-impact', 'gi', 4, '', 'On', 'Y', 'gensin'),
+(5, 'Apex Legends', '', 'Populer', '1677652907_3a657313e7c591ba441e.png', 'apex-legends-mobile', 'default', 5, '', 'On', 'Y', ''),
+(6, 'Call Of Duty Mobile', '', 'Populer', '1677652896_8fe9a7fbb1bbffad961e.png', 'call-of-duty-mobile', 'default', 6, '', 'On', 'Y', ''),
+(7, 'Dragon Raja', '', 'Populer', '1677652880_674fa1ff8d83e4767b9a.png', 'dragon-raja', 'default', 7, '', 'On', 'Y', ''),
+(8, 'Higgs Domino', 'Poker City', 'Populer', '1677652871_1709b4eae1f8463dd250.png', 'higgs-domino', 'default', 8, '', 'On', 'Y', ''),
+(9, 'Life After', '', 'Populer', '1677652850_997846b96c45972af096.png', 'life-after', 'default', 9, '', 'On', 'Y', ''),
+(10, 'Sausage Man', '', 'Populer', '1677652822_b2a4b5156fc02c4bda26.png', 'sausage-man', 'default', 10, '', 'On', 'Y', ''),
+(11, 'Tower Of Fantasy', '', 'Populer', '1677652811_7d0b62ad7debf4f68b86.png', 'tower-of-fantasy', 'default', 11, '', 'On', 'Y', ''),
+(12, 'Omega Legends', '', 'Populer', '1677652801_221c7aafdebb409b7edd.png', 'omega-legends', 'default', 12, '', 'On', 'Y', ''),
+(14, 'Gift Skin', '', 'Proses Manual', '1677652776_df6086fe02f1a5eb76ee.png', 'gift-skin', 'ml', 8, '', 'On', 'Y', 'Mobile Legends'),
+(15, 'Promo Khusus', '', 'Proses Manual', '1677652763_f3912456df0c2ebd07ae.png', 'promo-khusus-1212', 'default', 1, '', 'On', 'Y', ''),
+(16, 'Joki Rank Fast', '', 'Proses Manual', '1677652748_d56c96a42dcc62b07768.png', 'joki-rank-fast', 'joki', 7, '<p><strong>Catatan Penting :</strong><br />\r\n<br />\r\n1. Matikan Verifikasi Akun untuk mempermudah Penjoki Login.<br />\r\n2. Jika akun di login tanpa Izin , maka proses Joki akan dibatalkan dan Uang Pembeli akan hangus.<br />\r\n3. Dimohon Menunggu Sesuai Estimasi Proses Dan Jangan Spam Admin.<br />\r\n4. Jika ada Problem saat login ke Akun, maka akan segera di Hubungi oleh Admin.<br />\r\n5. Jika Akun belum di Proses selama 6 Jam harap Hubungi Admin.<br />\r\n6. Jika Proses Joki sudah selesai maka akan dihubungi Oleh Admin.<br />\r\n<br />\r\n<strong>Jika Butuh Bantuan Harap Hubungi Admin CGames,<br />\r\nTerimakasih.</strong></p>', 'On', 'N', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `game_populer`
+-- Struktur dari tabel `game_populer`
 --
 
 CREATE TABLE `game_populer` (
   `id` int(11) NOT NULL,
+  `game_name` varchar(100) NOT NULL,
   `game_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `game_populer`
+-- Dumping data untuk tabel `game_populer`
 --
 
-INSERT INTO `game_populer` (`id`, `game_id`) VALUES
-(12, 1);
+INSERT INTO `game_populer` (`id`, `game_name`, `game_id`) VALUES
+(17, '', 1),
+(18, '', 2),
+(19, '', 3);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `level`
+-- Struktur dari tabel `level`
 --
 
 CREATE TABLE `level` (
@@ -184,7 +183,7 @@ CREATE TABLE `level` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `level`
+-- Dumping data untuk tabel `level`
 --
 
 INSERT INTO `level` (`id`, `level_name`, `price`) VALUES
@@ -195,7 +194,7 @@ INSERT INTO `level` (`id`, `level_name`, `price`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `level_upgrade`
+-- Struktur dari tabel `level_upgrade`
 --
 
 CREATE TABLE `level_upgrade` (
@@ -215,7 +214,7 @@ CREATE TABLE `level_upgrade` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `level_upgrade`
+-- Dumping data untuk tabel `level_upgrade`
 --
 
 INSERT INTO `level_upgrade` (`id`, `code`, `level_id`, `level_name`, `price`, `user_id`, `method_id`, `method_name`, `payment_code`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -224,7 +223,7 @@ INSERT INTO `level_upgrade` (`id`, `code`, `level_id`, `level_name`, `price`, `u
 -- --------------------------------------------------------
 
 --
--- Table structure for table `method`
+-- Struktur dari tabel `method`
 --
 
 CREATE TABLE `method` (
@@ -241,26 +240,26 @@ CREATE TABLE `method` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `method`
+-- Dumping data untuk tabel `method`
 --
 
 INSERT INTO `method` (`id`, `method`, `image`, `uniq`, `provider`, `code`, `rek`, `instruksi`, `status`, `category`) VALUES
-(38, 'QRIS (E-Wallet dan Banking)', '1670119336_94c92cc380565dfbd164.png', 'N', 'Tripay', 'QRISC', '', '&lt;p&gt;&lt;strong&gt;Pembayaran via QRIS&lt;/strong&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;1. Masuk ke aplikasi E-Wallet atau M-Banking Anda yang telah mendukung QRIS,&lt;br /&gt;\r\n2. Pindai/Scan QR Code yang tersedia,&lt;br /&gt;\r\n3. Akan muncul detail transaksi lalu pastikan data transaksi sudah sesuai,&lt;br /&gt;\r\n4. Selesaikan proses pembayaran Anda,&lt;br /&gt;\r\n5. Transaksi selesai dan&amp;nbsp;simpan bukti pembayaran Anda.&lt;/p&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Pembayaran via QRIS (Mobile)&lt;/strong&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;1. Download/Screenshot QR Code pada invoice,&lt;br /&gt;\r\n2. Masuk ke aplikasi E-Wallet atau M-Banking Anda yang telah mendukung QRIS,&lt;br /&gt;\r\n3. Upload QR Code yang telah di download/screenshot tadi,&lt;br /&gt;\r\n4. Akan muncul detail transaksi lalu pastikan data transaksi sudah sesuai,&lt;br /&gt;\r\n5. Selesaikan proses pembayaran Anda,&lt;br /&gt;\r\n6. Transaksi selesai dan simpan bukti pembayaran Anda.&lt;/p&gt;', 'On', 'E-Wallet'),
-(62, 'BRI Virtual Account', '1670119327_36005ac386622f5c7c76.png', 'N', 'Tripay', 'BRIVA', '', '&lt;p&gt;&lt;strong&gt;Internet Banking&lt;/strong&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;1. Login ke internet banking Bank BRI Anda,&lt;br /&gt;\r\n2. Pilih menu&amp;nbsp;&lt;strong&gt;Pembayaran&lt;/strong&gt;&amp;nbsp;lalu klik menu&amp;nbsp;&lt;strong&gt;BRIVA,&lt;/strong&gt;&lt;br /&gt;\r\n3. Pilih rekening sumber dan masukkan &lt;strong&gt;Kode Bayar&lt;/strong&gt;&amp;nbsp;lalu klik&amp;nbsp;&lt;strong&gt;Kirim,&lt;/strong&gt;&lt;br /&gt;\r\n4. Detail transaksi akan ditampilkan, pastikan data sudah sesuai&lt;br /&gt;\r\n5. Klik&amp;nbsp;&lt;strong&gt;Lanjutkan,&lt;/strong&gt;&lt;br /&gt;\r\n6. Masukkan kata sandi ibanking lalu klik&amp;nbsp;&lt;strong&gt;Request&lt;/strong&gt;&amp;nbsp;untuk mengirim m-PIN ke nomor HP Anda,&lt;br /&gt;\r\n7. Periksa HP Anda dan masukkan m-PIN yang diterima lalu klik&amp;nbsp;&lt;strong&gt;Kirim,&lt;/strong&gt;&lt;br /&gt;\r\n8. Transaksi sukses, simpan bukti transaksi Anda.&lt;/p&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Aplikasi BRImo&lt;/strong&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;1. Login ke aplikasi BRImo Anda,&lt;br /&gt;\r\n2. Pilih menu&amp;nbsp;&lt;strong&gt;BRIVA,&lt;/strong&gt;&lt;br /&gt;\r\n3. Pilih sumber dana dan masukkan &lt;strong&gt;Nomor Pembayaran&lt;/strong&gt;&amp;nbsp;lalu klik&amp;nbsp;&lt;strong&gt;Lanjut,&lt;/strong&gt;&lt;br /&gt;\r\n4. Klik&amp;nbsp;&lt;strong&gt;Lanjut,&lt;/strong&gt;&lt;br /&gt;\r\n5. Detail transaksi akan ditampilkan, pastikan data sudah sesuai,&lt;br /&gt;\r\n6. Klik&amp;nbsp;&lt;strong&gt;Lanjutkan,&lt;/strong&gt;&lt;br /&gt;\r\n7. Klik&amp;nbsp;&lt;strong&gt;Konfirmasi,&lt;/strong&gt;&lt;br /&gt;\r\n8. Klik&amp;nbsp;&lt;strong&gt;Lanjut,&lt;/strong&gt;&lt;br /&gt;\r\n9. Masukkan kata sandi ibanking Anda,&lt;br /&gt;\r\n10. Klik&amp;nbsp;&lt;strong&gt;Lanjut,&lt;/strong&gt;&lt;br /&gt;\r\n11. Transaksi sukses lalu simpan bukti transaksi Anda.&lt;/p&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;ATM BRI&lt;/strong&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;1. Lakukan pembayaran melalui ATM Bank BRI,&lt;br /&gt;\r\n2. Pilih menu&amp;nbsp;&lt;strong&gt;Transaksi Lain &amp;gt; Pembayaran &amp;gt; Lainnya &amp;gt; Pilih BRIVA,&lt;/strong&gt;&lt;br /&gt;\r\n3. Masukkan Nomor VA,&lt;br /&gt;\r\n4. Pilih&amp;nbsp;&lt;strong&gt;Ya&lt;/strong&gt;&amp;nbsp;untuk memproses pembayaran.&lt;/p&gt;', 'On', 'Virtual Account'),
-(63, 'Mandiri Virtual Account', '1670119315_f2d1a4a5ee6634cfd7b9.png', 'N', 'Tripay', 'MANDIRIVA', '', '&lt;p&gt;&lt;strong&gt;Internet Banking Livin Biru&lt;/strong&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;1. Login ke internet banking Anda,&lt;br /&gt;\r\n2. Pilih menu&amp;nbsp;&lt;strong&gt;Pembayaran&lt;/strong&gt;&amp;nbsp;lalu klik menu&amp;nbsp;&lt;strong&gt;Multipayment,&lt;/strong&gt;&lt;br /&gt;\r\n3. Pilih&amp;nbsp;&lt;strong&gt;Penyedia Jasa&lt;/strong&gt;:&amp;nbsp;&lt;strong&gt;Bimasakti (70000),&lt;/strong&gt;&lt;br /&gt;\r\n4. Masukkan Nomor VA,&lt;br /&gt;\r\n5. Masukkan Nominal,&lt;br /&gt;\r\n6. Detail transaksi akan ditampilkan, pastikan data sudah sesuai,&lt;br /&gt;\r\n7. Klik tombol&amp;nbsp;&lt;strong&gt;Konfirmasi,&lt;/strong&gt;&lt;br /&gt;\r\n8. Periksa aplikasi Mandiri Online di ponsel Anda untuk menyelesaikan persetujuan transaksi,&lt;br /&gt;\r\n9. Transaksi sukses, simpan bukti transaksi Anda.&lt;/p&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Internet Banking Livin Kuning&lt;/strong&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;1. Login ke internet banking Anda,&lt;br /&gt;\r\n2. Pilih menu&amp;nbsp;&lt;strong&gt;Bayar&lt;/strong&gt;&amp;nbsp;lalu klik menu&amp;nbsp;&lt;strong&gt;E-Commerce,&lt;/strong&gt;&lt;br /&gt;\r\n3. Masukkan Kode&amp;nbsp;&lt;strong&gt;70000 (Bimasakti),&lt;/strong&gt;&lt;br /&gt;\r\n4. Masukkan Nomor VA,&lt;br /&gt;\r\n5. Masukkan Nominal,&lt;br /&gt;\r\n6. Detail transaksi akan ditampilkan, pastikan data sudah sesuai,&lt;br /&gt;\r\n7. Klik tombol&amp;nbsp;&lt;strong&gt;Konfirmasi,&lt;/strong&gt;&lt;br /&gt;\r\n8. Periksa aplikasi Mandiri Online di ponsel Anda untuk menyelesaikan persetujuan transaksi,&lt;br /&gt;\r\n9. Transaksi sukses lalu simpan bukti transaksi Anda.&lt;/p&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;ATM Mandiri&lt;/strong&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;1. Masukkan kartu ATM &amp;amp; isi PIN ATM Anda,&lt;br /&gt;\r\n2. Pilih menu&amp;nbsp;&lt;strong&gt;Bayar/Beli&lt;/strong&gt;&amp;nbsp;lalu pilih menu&amp;nbsp;&lt;strong&gt;Lainnya,&lt;/strong&gt;&lt;br /&gt;\r\n3. Pilih lagi menu&amp;nbsp;&lt;strong&gt;Lainnya,&lt;/strong&gt;&lt;br /&gt;\r\n4. Pilih menu&amp;nbsp;&lt;strong&gt;Multi Payment,&lt;/strong&gt;&lt;br /&gt;\r\n5. Masukkan kode&amp;nbsp;&lt;strong&gt;70000 (Bimasakti)&lt;/strong&gt;&amp;nbsp;lalu tekan&amp;nbsp;&lt;strong&gt;Benar,&lt;/strong&gt;&lt;br /&gt;\r\n6. Masukkan Nomor VA,&lt;br /&gt;\r\n7. Detail transaksi akan ditampilkan, pastikan data sudah sesuai,&lt;br /&gt;\r\n8. Tekan&amp;nbsp;&lt;strong&gt;1&lt;/strong&gt;&amp;nbsp;lalu tekan&amp;nbsp;&lt;strong&gt;YA,&lt;/strong&gt;&lt;br /&gt;\r\n9. Transaksi sukses, simpan bukti transaksi Anda.&lt;/p&gt;', 'On', 'Virtual Account'),
-(64, 'BNI Virtual Account', '1670119302_a490f6d221a6d375e1a7.png', 'N', 'Tripay', 'BNIVA', '', '&lt;p&gt;&lt;strong&gt;Internet Banking&lt;/strong&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;1. Login ke internet banking Bank BNI Anda,&lt;br /&gt;\r\n2. Pilih menu&amp;nbsp;&lt;strong&gt;Transaksi&lt;/strong&gt;&amp;nbsp;lalu klik menu&amp;nbsp;&lt;strong&gt;Virtual Account Billing,&lt;/strong&gt;&lt;br /&gt;\r\n3. Masukkan Nomor VA&amp;nbsp;lalu pilih&amp;nbsp;&lt;strong&gt;Rekening Debit,&lt;/strong&gt;&lt;br /&gt;\r\n4. Detail transaksi akan ditampilkan, pastikan data sudah sesuai,&lt;br /&gt;\r\n5. Masukkan respon key BNI appli 2,&lt;br /&gt;\r\n6. Transaksi sukses, simpan bukti transaksi Anda.&lt;/p&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;ATM BNI&lt;/strong&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;1. Masukkan kartu Anda,&lt;br /&gt;\r\n2. Pilih Bahasa,&lt;br /&gt;\r\n3. Masukkan PIN ATM Anda,&lt;br /&gt;\r\n4. Kemudian, pilih&amp;nbsp;&lt;strong&gt;Menu Lainnya,&lt;/strong&gt;&lt;br /&gt;\r\n5. Pilih&amp;nbsp;&lt;strong&gt;Transfer&lt;/strong&gt;&amp;nbsp;dan pilih jenis rekening yang akan digunakan (Contoh: Dari rekening Tabungan),&lt;br /&gt;\r\n6. Pilih&amp;nbsp;&lt;strong&gt;Virtual Account Billing&lt;/strong&gt;. Masukkan Nomor VA,&lt;br /&gt;\r\n7. Tagihan yang harus dibayarkan akan muncul pada layar konfirmasi,&lt;br /&gt;\r\n8. Konfirmasi, apabila telah selesai, lanjutkan transaksi,&lt;br /&gt;\r\n9. Transaksi Anda telah selesai.&lt;/p&gt;', 'On', 'Virtual Account'),
+(38, 'QRIS', '1670119336_94c92cc380565dfbd164.png', 'N', 'Tripay', 'QRISC', '', '&lt;p&gt;&lt;strong&gt;Pembayaran via QRIS&lt;/strong&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;1. Masuk ke aplikasi E-Wallet atau M-Banking Anda yang telah mendukung QRIS,&lt;br /&gt;\r\n2. Pindai/Scan QR Code yang tersedia,&lt;br /&gt;\r\n3. Akan muncul detail transaksi lalu pastikan data transaksi sudah sesuai,&lt;br /&gt;\r\n4. Selesaikan proses pembayaran Anda,&lt;br /&gt;\r\n5. Transaksi selesai dan&amp;nbsp;simpan bukti pembayaran Anda.&lt;/p&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Pembayaran via QRIS (Mobile)&lt;/strong&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;1. Download/Screenshot QR Code pada invoice,&lt;br /&gt;\r\n2. Masuk ke aplikasi E-Wallet atau M-Banking Anda yang telah mendukung QRIS,&lt;br /&gt;\r\n3. Upload QR Code yang telah di download/screenshot tadi,&lt;br /&gt;\r\n4. Akan muncul detail transaksi lalu pastikan data transaksi sudah sesuai,&lt;br /&gt;\r\n5. Selesaikan proses pembayaran Anda,&lt;br /&gt;\r\n6. Transaksi selesai dan simpan bukti pembayaran Anda.&lt;/p&gt;', 'On', 'E-Wallet'),
+(62, 'BRI VA', '1670119327_36005ac386622f5c7c76.png', 'N', 'Tripay', 'BRIVA', '', '&lt;p&gt;&lt;strong&gt;Internet Banking&lt;/strong&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;1. Login ke internet banking Bank BRI Anda,&lt;br /&gt;\r\n2. Pilih menu&amp;nbsp;&lt;strong&gt;Pembayaran&lt;/strong&gt;&amp;nbsp;lalu klik menu&amp;nbsp;&lt;strong&gt;BRIVA,&lt;/strong&gt;&lt;br /&gt;\r\n3. Pilih rekening sumber dan masukkan &lt;strong&gt;Kode Bayar&lt;/strong&gt;&amp;nbsp;lalu klik&amp;nbsp;&lt;strong&gt;Kirim,&lt;/strong&gt;&lt;br /&gt;\r\n4. Detail transaksi akan ditampilkan, pastikan data sudah sesuai&lt;br /&gt;\r\n5. Klik&amp;nbsp;&lt;strong&gt;Lanjutkan,&lt;/strong&gt;&lt;br /&gt;\r\n6. Masukkan kata sandi ibanking lalu klik&amp;nbsp;&lt;strong&gt;Request&lt;/strong&gt;&amp;nbsp;untuk mengirim m-PIN ke nomor HP Anda,&lt;br /&gt;\r\n7. Periksa HP Anda dan masukkan m-PIN yang diterima lalu klik&amp;nbsp;&lt;strong&gt;Kirim,&lt;/strong&gt;&lt;br /&gt;\r\n8. Transaksi sukses, simpan bukti transaksi Anda.&lt;/p&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Aplikasi BRImo&lt;/strong&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;1. Login ke aplikasi BRImo Anda,&lt;br /&gt;\r\n2. Pilih menu&amp;nbsp;&lt;strong&gt;BRIVA,&lt;/strong&gt;&lt;br /&gt;\r\n3. Pilih sumber dana dan masukkan &lt;strong&gt;Nomor Pembayaran&lt;/strong&gt;&amp;nbsp;lalu klik&amp;nbsp;&lt;strong&gt;Lanjut,&lt;/strong&gt;&lt;br /&gt;\r\n4. Klik&amp;nbsp;&lt;strong&gt;Lanjut,&lt;/strong&gt;&lt;br /&gt;\r\n5. Detail transaksi akan ditampilkan, pastikan data sudah sesuai,&lt;br /&gt;\r\n6. Klik&amp;nbsp;&lt;strong&gt;Lanjutkan,&lt;/strong&gt;&lt;br /&gt;\r\n7. Klik&amp;nbsp;&lt;strong&gt;Konfirmasi,&lt;/strong&gt;&lt;br /&gt;\r\n8. Klik&amp;nbsp;&lt;strong&gt;Lanjut,&lt;/strong&gt;&lt;br /&gt;\r\n9. Masukkan kata sandi ibanking Anda,&lt;br /&gt;\r\n10. Klik&amp;nbsp;&lt;strong&gt;Lanjut,&lt;/strong&gt;&lt;br /&gt;\r\n11. Transaksi sukses lalu simpan bukti transaksi Anda.&lt;/p&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;ATM BRI&lt;/strong&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;1. Lakukan pembayaran melalui ATM Bank BRI,&lt;br /&gt;\r\n2. Pilih menu&amp;nbsp;&lt;strong&gt;Transaksi Lain &amp;gt; Pembayaran &amp;gt; Lainnya &amp;gt; Pilih BRIVA,&lt;/strong&gt;&lt;br /&gt;\r\n3. Masukkan Nomor VA,&lt;br /&gt;\r\n4. Pilih&amp;nbsp;&lt;strong&gt;Ya&lt;/strong&gt;&amp;nbsp;untuk memproses pembayaran.&lt;/p&gt;', 'On', 'Virtual Account'),
+(63, 'Mandiri VA', '1670119315_f2d1a4a5ee6634cfd7b9.png', 'N', 'Tripay', 'MANDIRIVA', '', '&lt;p&gt;&lt;strong&gt;Internet Banking Livin Biru&lt;/strong&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;1. Login ke internet banking Anda,&lt;br /&gt;\r\n2. Pilih menu&amp;nbsp;&lt;strong&gt;Pembayaran&lt;/strong&gt;&amp;nbsp;lalu klik menu&amp;nbsp;&lt;strong&gt;Multipayment,&lt;/strong&gt;&lt;br /&gt;\r\n3. Pilih&amp;nbsp;&lt;strong&gt;Penyedia Jasa&lt;/strong&gt;:&amp;nbsp;&lt;strong&gt;Bimasakti (70000),&lt;/strong&gt;&lt;br /&gt;\r\n4. Masukkan Nomor VA,&lt;br /&gt;\r\n5. Masukkan Nominal,&lt;br /&gt;\r\n6. Detail transaksi akan ditampilkan, pastikan data sudah sesuai,&lt;br /&gt;\r\n7. Klik tombol&amp;nbsp;&lt;strong&gt;Konfirmasi,&lt;/strong&gt;&lt;br /&gt;\r\n8. Periksa aplikasi Mandiri Online di ponsel Anda untuk menyelesaikan persetujuan transaksi,&lt;br /&gt;\r\n9. Transaksi sukses, simpan bukti transaksi Anda.&lt;/p&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Internet Banking Livin Kuning&lt;/strong&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;1. Login ke internet banking Anda,&lt;br /&gt;\r\n2. Pilih menu&amp;nbsp;&lt;strong&gt;Bayar&lt;/strong&gt;&amp;nbsp;lalu klik menu&amp;nbsp;&lt;strong&gt;E-Commerce,&lt;/strong&gt;&lt;br /&gt;\r\n3. Masukkan Kode&amp;nbsp;&lt;strong&gt;70000 (Bimasakti),&lt;/strong&gt;&lt;br /&gt;\r\n4. Masukkan Nomor VA,&lt;br /&gt;\r\n5. Masukkan Nominal,&lt;br /&gt;\r\n6. Detail transaksi akan ditampilkan, pastikan data sudah sesuai,&lt;br /&gt;\r\n7. Klik tombol&amp;nbsp;&lt;strong&gt;Konfirmasi,&lt;/strong&gt;&lt;br /&gt;\r\n8. Periksa aplikasi Mandiri Online di ponsel Anda untuk menyelesaikan persetujuan transaksi,&lt;br /&gt;\r\n9. Transaksi sukses lalu simpan bukti transaksi Anda.&lt;/p&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;ATM Mandiri&lt;/strong&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;1. Masukkan kartu ATM &amp;amp; isi PIN ATM Anda,&lt;br /&gt;\r\n2. Pilih menu&amp;nbsp;&lt;strong&gt;Bayar/Beli&lt;/strong&gt;&amp;nbsp;lalu pilih menu&amp;nbsp;&lt;strong&gt;Lainnya,&lt;/strong&gt;&lt;br /&gt;\r\n3. Pilih lagi menu&amp;nbsp;&lt;strong&gt;Lainnya,&lt;/strong&gt;&lt;br /&gt;\r\n4. Pilih menu&amp;nbsp;&lt;strong&gt;Multi Payment,&lt;/strong&gt;&lt;br /&gt;\r\n5. Masukkan kode&amp;nbsp;&lt;strong&gt;70000 (Bimasakti)&lt;/strong&gt;&amp;nbsp;lalu tekan&amp;nbsp;&lt;strong&gt;Benar,&lt;/strong&gt;&lt;br /&gt;\r\n6. Masukkan Nomor VA,&lt;br /&gt;\r\n7. Detail transaksi akan ditampilkan, pastikan data sudah sesuai,&lt;br /&gt;\r\n8. Tekan&amp;nbsp;&lt;strong&gt;1&lt;/strong&gt;&amp;nbsp;lalu tekan&amp;nbsp;&lt;strong&gt;YA,&lt;/strong&gt;&lt;br /&gt;\r\n9. Transaksi sukses, simpan bukti transaksi Anda.&lt;/p&gt;', 'On', 'Virtual Account'),
+(64, 'BNI VA', '1670119302_a490f6d221a6d375e1a7.png', 'N', 'Tripay', 'BNIVA', '', '&lt;p&gt;&lt;strong&gt;Internet Banking&lt;/strong&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;1. Login ke internet banking Bank BNI Anda,&lt;br /&gt;\r\n2. Pilih menu&amp;nbsp;&lt;strong&gt;Transaksi&lt;/strong&gt;&amp;nbsp;lalu klik menu&amp;nbsp;&lt;strong&gt;Virtual Account Billing,&lt;/strong&gt;&lt;br /&gt;\r\n3. Masukkan Nomor VA&amp;nbsp;lalu pilih&amp;nbsp;&lt;strong&gt;Rekening Debit,&lt;/strong&gt;&lt;br /&gt;\r\n4. Detail transaksi akan ditampilkan, pastikan data sudah sesuai,&lt;br /&gt;\r\n5. Masukkan respon key BNI appli 2,&lt;br /&gt;\r\n6. Transaksi sukses, simpan bukti transaksi Anda.&lt;/p&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;ATM BNI&lt;/strong&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;1. Masukkan kartu Anda,&lt;br /&gt;\r\n2. Pilih Bahasa,&lt;br /&gt;\r\n3. Masukkan PIN ATM Anda,&lt;br /&gt;\r\n4. Kemudian, pilih&amp;nbsp;&lt;strong&gt;Menu Lainnya,&lt;/strong&gt;&lt;br /&gt;\r\n5. Pilih&amp;nbsp;&lt;strong&gt;Transfer&lt;/strong&gt;&amp;nbsp;dan pilih jenis rekening yang akan digunakan (Contoh: Dari rekening Tabungan),&lt;br /&gt;\r\n6. Pilih&amp;nbsp;&lt;strong&gt;Virtual Account Billing&lt;/strong&gt;. Masukkan Nomor VA,&lt;br /&gt;\r\n7. Tagihan yang harus dibayarkan akan muncul pada layar konfirmasi,&lt;br /&gt;\r\n8. Konfirmasi, apabila telah selesai, lanjutkan transaksi,&lt;br /&gt;\r\n9. Transaksi Anda telah selesai.&lt;/p&gt;', 'On', 'Virtual Account'),
 (72, 'Indomaret', '1668942423_049c24545e1d51666e21.jpg', 'N', 'Tripay', 'INDOMARET', '', '&lt;p&gt;&lt;strong&gt;Pembayaran via INDOMARET&lt;/strong&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;1. Datang ke gerai Indomaret,&lt;br /&gt;\r\n2. Sampaikan ke kasir ingin melakukan pembayaran&amp;nbsp;&lt;strong&gt;Linkita&lt;/strong&gt;,&lt;br /&gt;\r\n3. Berikan kode bayar&amp;nbsp;ke kasir,&lt;br /&gt;\r\n4. Bayar sesuai jumlah yang diinfokan oleh kasir,&lt;br /&gt;\r\n5. Simpan struk bukti pembayaran Anda.&lt;/p&gt;', 'On', 'Convenience Store'),
 (75, 'BCA', '1670119281_ed4301dd44b4cae090a1.png', 'Y', 'Manual', 'bca', '4330544827', '&lt;p&gt;&lt;strong&gt;WAJIB DI BACA ! :&lt;/strong&gt;&lt;/p&gt;\r\n\r\n&lt;ol&gt;\r\n	&lt;li&gt;&amp;nbsp;Lakukan Pembayaran sesuai dengan Nominal, Jika tidak pesanan tidak akan diproses&lt;/li&gt;\r\n	&lt;li&gt;&amp;nbsp;Pesanan akan otomatis diproses seetelah pembayaran&lt;/li&gt;\r\n	&lt;li&gt;&amp;nbsp;Untuk Top Up saldo jika sudah melakukan pembayaran harap kontak admin di bawah kanan website logo Customer Service&lt;/li&gt;\r\n&lt;/ol&gt;', 'On', 'Bank Transfer'),
-(76, 'BSI Virtual Account', '1670119258_27b3f4ae57eccf7ef230.png', 'N', 'Tripay', 'BSIVA', 'BSIVA', '', 'On', 'Virtual Account'),
-(77, 'Permata Virtual Account', '1671950746_4d78be8f04a75d811a67.png', 'N', 'Tripay', 'PERMATAVA', '', '', 'On', 'Virtual Account'),
-(78, 'BRIVA IpayMu', '1674286049_c4ff7b5a3631313931ea.jpg', 'N', 'iPaymu', 'va.bri', '', '', 'On', 'Virtual Account'),
-(79, 'Mandiri', '1674356626_2790577fc61d86084c3f.jpg', 'Y', 'Manual', 'mandiri', '2134567890', '', 'On', 'Bank Transfer'),
-(80, 'OVO', '1675674263_d39e6e0a5cc4daf92ec6.jpg', 'N', 'Tripay', 'OVO', '', '', 'On', 'E-Wallet');
+(76, 'BSI VA', '1670119258_27b3f4ae57eccf7ef230.png', 'N', 'Tripay', 'BSIVA', 'BSIVA', '', 'On', 'Virtual Account'),
+(77, 'Permata VA', '1671950746_4d78be8f04a75d811a67.png', 'N', 'Tripay', 'PERMATAVA', '', '', 'On', 'Virtual Account'),
+(78, 'BRIVA IpayMu', '1674286049_c4ff7b5a3631313931ea.jpg', 'N', 'iPaymu', 'va.bri', '', '', 'Off', 'Virtual Account'),
+(79, 'Mandiri', '1674356626_2790577fc61d86084c3f.jpg', 'Y', 'Manual', 'mandiri', '2134567890', '', 'Off', 'Bank Transfer'),
+(80, 'OVO', '1677640684_41b96929c3e78661076d.png', 'N', 'Manual', 'OVO', '085293026542', '', 'On', 'E-Wallet');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orders`
+-- Struktur dari tabel `orders`
 --
 
 CREATE TABLE `orders` (
@@ -291,7 +290,7 @@ CREATE TABLE `orders` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `orders`
+-- Dumping data untuk tabel `orders`
 --
 
 INSERT INTO `orders` (`id`, `order_id`, `username`, `wa`, `product_id`, `product`, `price`, `quantity`, `user_id`, `zone_id`, `nickname`, `method_id`, `method`, `expired_time`, `payment_status`, `games_id`, `games`, `status`, `ket`, `payment_code`, `provider`, `date`, `date_create`, `date_process`) VALUES
@@ -323,12 +322,13 @@ INSERT INTO `orders` (`id`, `order_id`, `username`, `wa`, `product_id`, `product
 (204, 'TP202302066009', '', '085320148791', 291, '5 Diamond', 1000, 1, '1289651039', '15472', 'Timoty^581', 38, 'QRIS (E-Wallet dan Banking)', '', '', 1, 'Mobile Legends', 'Pending', 'Menunggu Pembayaran', 'https://tripay.co.id/qr/DEV-T1092777768PPWOQ', 'AG', '2023-02-06', '2023-02-06 19:18:47', '2023-02-06 19:18:47'),
 (205, 'TP202302069746', '', '098765435456', 283, '86 Diamonds', 22000, 1, '1289651039', '15472', 'Timoty^581', 38, 'QRIS (E-Wallet dan Banking)', '', '', 1, 'Mobile Legends', 'Pending', 'Menunggu Pembayaran', 'https://tripay.co.id/qr/DEV-T1092777769WXKKJ', 'AG', '2023-02-06', '2023-02-06 19:19:44', '2023-02-06 19:19:44'),
 (206, 'TP202302085413', 'usertesting', '085320148791', 291, '5 Diamond', 1000, 1, '128965103', '15472', 'ID Akun tidak ditemukan', 38, 'QRIS (E-Wallet dan Banking)', '', '', 1, 'Mobile Legends', 'Expired', 'Menunggu Pembayaran', 'https://tripay.co.id/qr/DEV-T1092778151N66BB', 'AG', '2023-02-08', '2023-02-08 17:48:56', '2023-02-08 17:48:56'),
-(207, 'TP202302124259', 'usertesting', '0986578967', 291, '5 Diamond', 1000, 1, '1289651039', '15472', 'Timoty^581', 10001, 'Saldo Akun', '', '', 1, 'Mobile Legends', 'Processing', 'IP Not Allowed, IP=36.73.32.50', 'Saldo Akun', 'AG', '2023-02-12', '2023-02-12 13:37:27', '2023-02-12 13:37:27');
+(207, 'TP202302124259', 'usertesting', '0986578967', 291, '5 Diamond', 1000, 1, '1289651039', '15472', 'Timoty^581', 10001, 'Saldo Akun', '', '', 1, 'Mobile Legends', 'Processing', 'IP Not Allowed, IP=36.73.32.50', 'Saldo Akun', 'AG', '2023-02-12', '2023-02-12 13:37:27', '2023-02-12 13:37:27'),
+(208, 'TP202303019008', '', '085293026542', 283, '86 Diamonds', 22000, 1, '920643609', '12646', 'l a z y', 80, 'OVO', NULL, NULL, 1, 'Mobile Legends', 'Pending', 'Menunggu Pembayaran', '085293026542', 'AG', '2023-03-01', '2023-03-01 09:06:34', '2023-03-01 09:06:34');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `price`
+-- Struktur dari tabel `price`
 --
 
 CREATE TABLE `price` (
@@ -341,7 +341,7 @@ CREATE TABLE `price` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `price`
+-- Dumping data untuk tabel `price`
 --
 
 INSERT INTO `price` (`id`, `product_id`, `method_id`, `price`, `reseller_price`, `vip_price`) VALUES
@@ -1142,7 +1142,7 @@ INSERT INTO `price` (`id`, `product_id`, `method_id`, `price`, `reseller_price`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product`
+-- Struktur dari tabel `product`
 --
 
 CREATE TABLE `product` (
@@ -1161,17 +1161,17 @@ CREATE TABLE `product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `product`
+-- Dumping data untuk tabel `product`
 --
 
 INSERT INTO `product` (`id`, `games_id`, `product`, `price`, `vip_price`, `reseller_price`, `provider`, `sku`, `status`, `check_status`, `check_code`, `logo_url`) VALUES
 (283, 1, '86 Diamonds', 22000, 20000, 21000, 'AG', 'UPMBL85', 'On', 'Y', 'gensin', 'https://cdn1.codashop.com/S/content/common/images/denom-image/MLBB/100x100/150orMore_MLBB_Diamonds.png'),
-(284, 1, '172 Diamonds', 45000, 42000, 43000, 'DF', 'ML172', 'On', 'Y', '', 'https://cdn1.codashop.com/S/content/common/images/denom-image/MLBB/100x100/150orMore_MLBB_Diamonds.png'),
-(285, 1, '304 Diamonds', 75000, 71000, 72000, 'DF', 'ML304', 'On', 'Y', '', 'https://cdn1.codashop.com/S/content/common/images/denom-image/MLBB/100x100/150orMore_MLBB_Diamonds.png'),
+(284, 1, '172 Diamonds', 45000, 42000, 43000, 'DF', 'ML172', 'Off', 'Y', '', 'https://cdn1.codashop.com/S/content/common/images/denom-image/MLBB/100x100/150orMore_MLBB_Diamonds.png'),
+(285, 1, '304 Diamonds', 75000, 71000, 72000, 'DF', 'ML304', 'Off', 'Y', '', 'https://cdn1.codashop.com/S/content/common/images/denom-image/MLBB/100x100/150orMore_MLBB_Diamonds.png'),
 (286, 16, 'Epic', 5000, 0, 0, 'Manual', 'EPIC', 'On', 'Y', '', ''),
 (287, 2, '50 Diamond', 1000, 1000, 1000, 'AG', 'FF5', 'On', 'Y', '', ''),
 (289, 4, '80 Diamond', 15000, 11000, 12000, 'DF', 'gensin', 'On', 'Y', '', ''),
-(291, 1, '5 Diamond', 1800, 1000, 1500, 'AG', 'FF5', 'On', 'Y', '', 'https://cdn1.codashop.com/S/content/common/images/denom-image/MLBB/100x100/150orMore_MLBB_Diamonds.png'),
+(291, 1, '50 Diamonds', 1800, 1000, 1500, 'AG', 'FF5', 'On', 'Y', '', 'https://cdn1.codashop.com/S/content/common/images/denom-image/MLBB/100x100/150orMore_MLBB_Diamonds.png'),
 (293, 16, 'jkl', 7, 78, 678, 'DF', '56789', 'On', 'Y', '', 'http://www.google.com'),
 (294, 16, 'http://www.google.com', 3456, 56789, 43567, 'DF', 'fghj', 'On', 'Y', '', 'http://www.google.com'),
 (295, 16, 'hghj', 5678, 5467, 5678, 'DF', '5678', 'On', 'Y', '', 'http://www.google.com'),
@@ -1180,7 +1180,7 @@ INSERT INTO `product` (`id`, `games_id`, `product`, `price`, `vip_price`, `resel
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sosmed`
+-- Struktur dari tabel `sosmed`
 --
 
 CREATE TABLE `sosmed` (
@@ -1190,7 +1190,7 @@ CREATE TABLE `sosmed` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `sosmed`
+-- Dumping data untuk tabel `sosmed`
 --
 
 INSERT INTO `sosmed` (`id`, `link`, `image`) VALUES
@@ -1200,7 +1200,7 @@ INSERT INTO `sosmed` (`id`, `link`, `image`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `topup`
+-- Struktur dari tabel `topup`
 --
 
 CREATE TABLE `topup` (
@@ -1216,7 +1216,7 @@ CREATE TABLE `topup` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `topup`
+-- Dumping data untuk tabel `topup`
 --
 
 INSERT INTO `topup` (`id`, `topup_id`, `username`, `method_id`, `method`, `amount`, `status`, `payment_code`, `date_create`) VALUES
@@ -1225,7 +1225,7 @@ INSERT INTO `topup` (`id`, `topup_id`, `username`, `method_id`, `method`, `amoun
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -1240,7 +1240,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `balance`, `wa`, `status`, `level_id`, `date_create`) VALUES
@@ -1259,12 +1259,13 @@ INSERT INTO `users` (`id`, `username`, `password`, `balance`, `wa`, `status`, `l
 (31, 'test123', '$2y$10$WU8tW/6cUlk8KvWgpEslrOkj0lT6YMnArrIaR3e9FkpLwLqzg0ZrK', 0, '087361274666', 'On', 1, '2023-01-08 00:39:14'),
 (32, 'test002', '$2y$10$xD.kAMA3rZxtqX/oul9F3uF42spwNfTVGeWs3Pp6QQWTz5CzqXte.', 0, '08128717358', 'On', 1, '2023-01-08 00:39:57'),
 (33, 'usertesting', '$2y$10$iRQs9f52AcpljtIK3QGVtuB/qZs.ZHFcefh.usb/PxCqX4ZWJpX62', 2853782, '08656454545', 'On', 3, '2023-01-10 08:01:33'),
-(34, 'cobacoba', '$2y$10$6kfvHH0rBqLn5tVYEVxCu.6G.hrrEmSDN/C.PoIuYgYhPvKkejOnu', 0, '0987657890', 'On', 1, '2023-01-18 19:37:39');
+(34, 'cobacoba', '$2y$10$6kfvHH0rBqLn5tVYEVxCu.6G.hrrEmSDN/C.PoIuYgYhPvKkejOnu', 0, '0987657890', 'On', 1, '2023-01-18 19:37:39'),
+(35, 'Gaming', '$2y$10$zrXxHYjzQMp/AQ1EwTCGEuw.dqdQuBDUqGWjJDNwQoWUtSMYChofC', 0, '087772233354', 'On', 1, '2023-03-01 20:57:23');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `utility`
+-- Struktur dari tabel `utility`
 --
 
 CREATE TABLE `utility` (
@@ -1274,23 +1275,23 @@ CREATE TABLE `utility` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `utility`
+-- Dumping data untuk tabel `utility`
 --
 
 INSERT INTO `utility` (`id`, `u_key`, `u_value`) VALUES
-(1, 'web-title', 'Games K\''),
-(2, 'web-name', 'Website Top Up Games'),
-(3, 'web-logo', '1676971655_5cbe4c01b2c10eb35def.png'),
+(1, 'web-title', 'Games K’'),
+(2, 'web-name', 'Powered By Kiosweb.id'),
+(3, 'web-logo', '1677420974_f7714882a1808e6919d3.png'),
 (4, 'web-keywords', 'Top up game'),
 (5, 'web-description', '<p>Website top up games termurah, tercepat dan terlengkap #1 Indonesia.</p>\r\n'),
-(6, 'tripay-key', 'DEV-OETuMwWRB80Kj52Yv0HIY5rk7hGUvx5FtwCo7D9M'),
-(7, 'tripay-private', 'ZEd3t-obEc2-mApzQ-Sl4lF-a5bIw'),
-(8, 'tripay-merchant', 'T10927'),
-(9, 'digi-user', 'wepaxoWjQkXD'),
-(10, 'digi-key', 'a610cfdb-5478-5b9b-bb3e-d366139651eb'),
-(11, 'ag-merchant', 'M220628RCZN5376FH'),
-(12, 'ag-secret', '665ab70966976d14a8072f0150f79024ffd613080b40b723ab99ab23d0815a63'),
-(13, 'kiosweb-license', '2dc8c92d353c843'),
+(6, 'tripay-key', ''),
+(7, 'tripay-private', ''),
+(8, 'tripay-merchant', ''),
+(9, 'digi-user', ''),
+(10, 'digi-key', ''),
+(11, 'ag-merchant', ''),
+(12, 'ag-secret', ''),
+(13, 'kiosweb-license', 'af7ea1c8479e477'),
 (14, 'sm-wa', 'https://instagram.com/kiosweb.id/'),
 (15, 'sm-ig', 'https://instagram.com/kiosweb.id/'),
 (16, 'sm-tele', ''),
@@ -1298,18 +1299,18 @@ INSERT INTO `utility` (`id`, `u_key`, `u_value`) VALUES
 (18, 'sm-fb', 'https://instagram.com/kiosweb.id/'),
 (19, 'pay_balance', 'Y'),
 (20, 'page_sk', '<h2><strong>Terms and Conditions</strong></h2>\r\n\r\n<p>Welcome to CGames!</p>\r\n\r\n<p>These terms and conditions outline the rules and regulations for the use of CGames&#39;s Website, located at https://cgames.com</p>\r\n\r\n<p>By accessing this website we assume you accept these terms and conditions. Do not continue to use CGames if you do not agree to take all of the terms and conditions stated on this page.</p>\r\n\r\n<p>The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and all Agreements: &quot;Client&quot;, &quot;You&quot; and &quot;Your&quot; refers to you, the person log on this website and compliant to the Company&rsquo;s terms and conditions. &quot;The Company&quot;, &quot;Ourselves&quot;, &quot;We&quot;, &quot;Our&quot; and &quot;Us&quot;, refers to our Company. &quot;Party&quot;, &quot;Parties&quot;, or &quot;Us&quot;, refers to both the Client and ourselves. All terms refer to the offer, acceptance and consideration of payment necessary to undertake the process of our assistance to the Client in the most appropriate manner for the express purpose of meeting the Client&rsquo;s needs in respect of provision of the Company&rsquo;s stated services, in accordance with and subject to, prevailing law of Netherlands. Any use of the above terminology or other words in the singular, plural, capitalization and/or he/she or they, are taken as interchangeable and therefore as referring to same.</p>\r\n\r\n<h3><strong>Cookies</strong></h3>\r\n\r\n<p>We employ the use of cookies. By accessing CGames, you agreed to use cookies in agreement with the CGames&#39;s Privacy Policy.</p>\r\n\r\n<p>Most interactive websites use cookies to let us retrieve the user&rsquo;s details for each visit. Cookies are used by our website to enable the functionality of certain areas to make it easier for people visiting our website. Some of our affiliate/advertising partners may also use cookies.</p>\r\n\r\n<h3><strong>License</strong></h3>\r\n\r\n<p>Unless otherwise stated, CGames and/or its licensors own the intellectual property rights for all material on CGames. All intellectual property rights are reserved. You may access this from MGames for your own personal use subjected to restrictions set in these terms and conditions.</p>\r\n\r\n<p>You must not:</p>\r\n\r\n<ul>\r\n	<li>Republish material from CGames</li>\r\n	<li>Sell, rent or sub-license material from CGames</li>\r\n	<li>Reproduce, duplicate or copy material from CGames</li>\r\n	<li>Redistribute content from CGames</li>\r\n</ul>\r\n\r\n<p>This Agreement shall begin on the date hereof. Our Terms and Conditions were created with the help of the <a href=\"https://www.termsfeed.com/terms-conditions-generator/\">TermsFeed Free Terms and Conditions Generator</a>.</p>\r\n\r\n<p>Parts of this website offer an opportunity for users to post and exchange opinions and information in certain areas of the website. CGames does not filter, edit, publish or review Comments prior to their presence on the website. Comments do not reflect the views and opinions of CGames,its agents and/or affiliates. Comments reflect the views and opinions of the person who post their views and opinions. To the extent permitted by applicable laws, MGames shall not be liable for the Comments or for any liability, damages or expenses caused and/or suffered as a result of any use of and/or posting of and/or appearance of the Comments on this website.</p>\r\n\r\n<p>CGames reserves the right to monitor all Comments and to remove any Comments which can be considered inappropriate, offensive or causes breach of these Terms and Conditions.</p>\r\n\r\n<p>You warrant and represent that:</p>\r\n\r\n<ul>\r\n	<li>You are entitled to post the Comments on our website and have all necessary licenses and consents to do so;</li>\r\n	<li>The Comments do not invade any intellectual property right, including without limitation copyright, patent or trademark of any third party;</li>\r\n	<li>The Comments do not contain any defamatory, libelous, offensive, indecent or otherwise unlawful material which is an invasion of privacy</li>\r\n	<li>The Comments will not be used to solicit or promote business or custom or present commercial activities or unlawful activity.</li>\r\n</ul>\r\n\r\n<p>You hereby grant CGames a non-exclusive license to use, reproduce, edit and authorize others to use, reproduce and edit any of your Comments in any and all forms, formats or media.</p>\r\n\r\n<h3><strong>Hyperlinking to our Content</strong></h3>\r\n\r\n<p>The following organizations may link to our Website without prior written approval:</p>\r\n\r\n<ul>\r\n	<li>Government agencies;</li>\r\n	<li>Search engines;</li>\r\n	<li>News organizations;</li>\r\n	<li>Online directory distributors may link to our Website in the same manner as they hyperlink to the Websites of other listed businesses; and</li>\r\n	<li>System wide Accredited Businesses except soliciting non-profit organizations, charity shopping malls, and charity fundraising groups which may not hyperlink to our Web site.</li>\r\n</ul>\r\n\r\n<p>These organizations may link to our home page, to publications or to other Website information so long as the link: (a) is not in any way deceptive; (b) does not falsely imply sponsorship, endorsement or approval of the linking party and its products and/or services; and (c) fits within the context of the linking party&rsquo;s site.</p>\r\n\r\n<p>We may consider and approve other link requests from the following types of organizations:</p>\r\n\r\n<ul>\r\n	<li>commonly-known consumer and/or business information sources;</li>\r\n	<li>dot.com community sites;</li>\r\n	<li>associations or other groups representing charities;</li>\r\n	<li>online directory distributors;</li>\r\n	<li>internet portals;</li>\r\n	<li>accounting, law and consulting firms; and</li>\r\n	<li>educational institutions and trade associations.</li>\r\n</ul>\r\n\r\n<p>We will approve link requests from these organizations if we decide that: (a) the link would not make us look unfavorably to ourselves or to our accredited businesses; (b) the organization does not have any negative records with us; (c) the benefit to us from the visibility of the hyperlink compensates the absence of CGames; and (d) the link is in the context of general resource information.</p>\r\n\r\n<p>These organizations may link to our home page so long as the link: (a) is not in any way deceptive; (b) does not falsely imply sponsorship, endorsement or approval of the linking party and its products or services; and (c) fits within the context of the linking party&rsquo;s site.</p>\r\n\r\n<p>If you are one of the organizations listed in paragraph 2 above and are interested in linking to our website, you must inform us by sending an e-mail to CGames. Please include your name, your organization name, contact information as well as the URL of your site, a list of any URLs from which you intend to link to our Website, and a list of the URLs on our site to which you would like to link. Wait 2-3 weeks for a response.</p>\r\n\r\n<p>Approved organizations may hyperlink to our Website as follows:</p>\r\n\r\n<ul>\r\n	<li>By use of our corporate name; or</li>\r\n	<li>By use of the uniform resource locator being linked to; or</li>\r\n	<li>By use of any other description of our Website being linked to that makes sense within the context and format of content on the linking party&rsquo;s site.</li>\r\n</ul>\r\n\r\n<p>No use of CGames logo or other artwork will be allowed for linking absent a trademark license agreement.</p>\r\n\r\n<h3><strong>iFrames</strong></h3>\r\n\r\n<p>Without prior approval and written permission, you may not create frames around our Webpages that alter in any way the visual presentation or appearance of our Website.</p>\r\n\r\n<h3><strong>Content Liability</strong></h3>\r\n\r\n<p>We shall not be hold responsible for any content that appears on your Website. You agree to protect and defend us against all claims that is rising on your Website. No link(s) should appear on any Website that may be interpreted as libelous, obscene or criminal, or which infringes, otherwise violates, or advocates the infringement or other violation of, any third party rights.</p>\r\n\r\n<h3><strong>Your Privacy</strong></h3>\r\n\r\n<p>Please read Privacy Policy</p>\r\n\r\n<h3><strong>Reservation of Rights</strong></h3>\r\n\r\n<p>We reserve the right to request that you remove all links or any particular link to our Website. You approve to immediately remove all links to our Website upon request. We also reserve the right to amen these terms and conditions and it&rsquo;s linking policy at any time. By continuously linking to our Website, you agree to be bound to and follow these linking terms and conditions.</p>\r\n\r\n<h3><strong>Removal of links from our website</strong></h3>\r\n\r\n<p>If you find any link on our Website that is offensive for any reason, you are free to contact and inform us any moment. We will consider requests to remove links but we are not obligated to or so or to respond to you directly.</p>\r\n\r\n<p>We do not ensure that the information on this website is correct, we do not warrant its completeness or accuracy; nor do we promise to ensure that the website remains available or that the material on the website is kept up to date.</p>\r\n\r\n<h3><strong>Disclaimer</strong></h3>\r\n\r\n<p>To the maximum extent permitted by applicable law, we exclude all representations, warranties and conditions relating to our website and the use of this website. Nothing in this disclaimer will:</p>\r\n\r\n<ul>\r\n	<li>limit or exclude our or your liability for death or personal injury;</li>\r\n	<li>limit or exclude our or your liability for fraud or fraudulent misrepresentation;</li>\r\n	<li>limit any of our or your liabilities in any way that is not permitted under applicable law; or</li>\r\n	<li>exclude any of our or your liabilities that may not be excluded under applicable law.</li>\r\n</ul>\r\n\r\n<p>The limitations and prohibitions of liability set in this Section and elsewhere in this disclaimer: (a) are subject to the preceding paragraph; and (b) govern all liabilities arising under the disclaimer, including liabilities arising in contract, in tort and for breach of statutory duty.</p>\r\n\r\n<p>As long as the website and the information and services on the website are provided free of charge, we will not be liable for any loss or damage of any nature.</p>\r\n'),
-(21, 'cm_key', '8b478aa9fadd7467f8b33e05b435650e63a4a19824b4d'),
-(22, 'cm_sign', 'bF0sMiyOxVlDNWCzMeicvFOY2NKDyvsZ'),
-(23, 'ip_va', '0000005320148791'),
-(24, 'ip_secret', 'SANDBOXE5CDF964-FA7E-487F-BFB0-707B2FDD3913'),
+(21, 'cm_key', ''),
+(22, 'cm_sign', ''),
+(23, 'ip_va', ''),
+(24, 'ip_secret', ''),
 (25, 'sm-yt', 'https://instagram.com/kiosweb.id/'),
-(26, 'fonnte-token', 'PHbozD0CqBxxpISKE8yz'),
-(27, 'modal-img', '1675853170_8024e437e95f0bd2e313.jpg');
+(26, 'fonnte-token', ''),
+(27, 'modal-img', '1677679485_2cda0bb6614eec1b2e6a.png');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `whatsapp`
+-- Struktur dari tabel `whatsapp`
 --
 
 CREATE TABLE `whatsapp` (
@@ -1322,7 +1323,7 @@ CREATE TABLE `whatsapp` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `whatsapp`
+-- Dumping data untuk tabel `whatsapp`
 --
 
 INSERT INTO `whatsapp` (`id`, `template`, `type`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -1336,50 +1337,50 @@ INSERT INTO `whatsapp` (`id`, `template`, `type`, `created_at`, `updated_at`, `d
 --
 
 --
--- Indexes for table `admin`
+-- Indeks untuk tabel `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `banner`
+-- Indeks untuk tabel `banner`
 --
 ALTER TABLE `banner`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `callback`
+-- Indeks untuk tabel `callback`
 --
 ALTER TABLE `callback`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `category`
+-- Indeks untuk tabel `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `games`
+-- Indeks untuk tabel `games`
 --
 ALTER TABLE `games`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `game_populer`
+-- Indeks untuk tabel `game_populer`
 --
 ALTER TABLE `game_populer`
   ADD PRIMARY KEY (`id`),
   ADD KEY `game_id` (`game_id`);
 
 --
--- Indexes for table `level`
+-- Indeks untuk tabel `level`
 --
 ALTER TABLE `level`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `level_upgrade`
+-- Indeks untuk tabel `level_upgrade`
 --
 ALTER TABLE `level_upgrade`
   ADD PRIMARY KEY (`id`),
@@ -1388,162 +1389,162 @@ ALTER TABLE `level_upgrade`
   ADD KEY `method_id` (`method_id`);
 
 --
--- Indexes for table `method`
+-- Indeks untuk tabel `method`
 --
 ALTER TABLE `method`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `orders`
+-- Indeks untuk tabel `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `price`
+-- Indeks untuk tabel `price`
 --
 ALTER TABLE `price`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `product`
+-- Indeks untuk tabel `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `sosmed`
+-- Indeks untuk tabel `sosmed`
 --
 ALTER TABLE `sosmed`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `topup`
+-- Indeks untuk tabel `topup`
 --
 ALTER TABLE `topup`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_level` (`level_id`);
 
 --
--- Indexes for table `utility`
+-- Indeks untuk tabel `utility`
 --
 ALTER TABLE `utility`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `whatsapp`
+-- Indeks untuk tabel `whatsapp`
 --
 ALTER TABLE `whatsapp`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `admin`
+-- AUTO_INCREMENT untuk tabel `admin`
 --
 ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `banner`
+-- AUTO_INCREMENT untuk tabel `banner`
 --
 ALTER TABLE `banner`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `callback`
+-- AUTO_INCREMENT untuk tabel `callback`
 --
 ALTER TABLE `callback`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `category`
+-- AUTO_INCREMENT untuk tabel `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- AUTO_INCREMENT for table `games`
+-- AUTO_INCREMENT untuk tabel `games`
 --
 ALTER TABLE `games`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `game_populer`
+-- AUTO_INCREMENT untuk tabel `game_populer`
 --
 ALTER TABLE `game_populer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT for table `level`
+-- AUTO_INCREMENT untuk tabel `level`
 --
 ALTER TABLE `level`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `level_upgrade`
+-- AUTO_INCREMENT untuk tabel `level_upgrade`
 --
 ALTER TABLE `level_upgrade`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- AUTO_INCREMENT for table `method`
+-- AUTO_INCREMENT untuk tabel `method`
 --
 ALTER TABLE `method`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
--- AUTO_INCREMENT for table `orders`
+-- AUTO_INCREMENT untuk tabel `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=208;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=209;
 
 --
--- AUTO_INCREMENT for table `price`
+-- AUTO_INCREMENT untuk tabel `price`
 --
 ALTER TABLE `price`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=794;
 
 --
--- AUTO_INCREMENT for table `product`
+-- AUTO_INCREMENT untuk tabel `product`
 --
 ALTER TABLE `product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=297;
 
 --
--- AUTO_INCREMENT for table `sosmed`
+-- AUTO_INCREMENT untuk tabel `sosmed`
 --
 ALTER TABLE `sosmed`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `topup`
+-- AUTO_INCREMENT untuk tabel `topup`
 --
 ALTER TABLE `topup`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT for table `utility`
+-- AUTO_INCREMENT untuk tabel `utility`
 --
 ALTER TABLE `utility`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
--- AUTO_INCREMENT for table `whatsapp`
+-- AUTO_INCREMENT untuk tabel `whatsapp`
 --
 ALTER TABLE `whatsapp`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;

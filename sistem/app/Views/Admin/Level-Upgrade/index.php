@@ -5,16 +5,11 @@
 				
 				<?php $this->section('content'); ?>
 					<div class="row">
-						<div class="col-lg-10 mx-auto">
+						<div class="col-lg-12 mt-4 ">
 							<?= alert(); ?>
-							<div class="card shadow mb-4">
-								<div class="card-header py-3">
-									<h6 class="m-0 font-weight-bold text-primary">Upgrade Level Member</h6>
-								</div>
-								<div class="card-body">
-									<!-- <a href="<?= base_url(); ?>/admin/pengguna/add" class="btn btn-primary">Tambah Level</a> -->
-								</div>
-								<div class="table-responsive">
+								<h5>Upgrade Level Member</h5>
+								<div class="card shadow mb-4">
+								    <div class="card-datatable table-responsive">
 									<table class="table-white table table-striped">
 										<tr class="bg-primary text-white">
 											<th width="10">No</th>
@@ -32,12 +27,19 @@
 											<td>Rp. <?= number_format($value['price'], 0,'.',',') ; ?></td>
 											<td><?= $value['status']; ?></td>
 											<td>
-												<a href="<?= base_url(); ?>/admin/level-upgrade/edit/<?= $value['id']; ?>" class="btn btn-primary btn-sm">
-													<i class="fas fa-fw fa-edit"></i>
-												</a>
-												<a href="<?= base_url(); ?>/admin/level-upgrade/delete/<?= $value['id']; ?>" class="btn btn-primary btn-sm">
-													Hapus
-												</a>
+											    <div class="dropdown">
+                                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                            <i class="ti ti-dots-vertical"></i>
+                                                    </button>
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item" href="<?= base_url(); ?>/admin/level-upgrade/edit/<?= $value['id']; ?>">
+                                                            <i class="ti ti-pencil me-1"></i> Edit
+                                                        </a>
+                                                        <a class="dropdown-item" onclick="hapus('<?= base_url(); ?>/admin/level-upgrade/delete/<?= $value['id']; ?>">
+                                                            <i class="ti ti-trash me-1"></i> Delete
+                                                        </a>
+                                                    </div>
+                                                </div>
 											</td>
 										</tr>
 										<?php endforeach ?>
@@ -48,6 +50,8 @@
 										<?php endif ?>
 									</table>
 								</div>
+								</div>
+								
 							</div>
 						</div>
 					</div>

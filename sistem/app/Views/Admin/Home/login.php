@@ -10,17 +10,20 @@
 						<div class="col-md-6">
 							<div class="card">
 								<div class="card-body">
-									<h5>Login Administrator</h5>
-									<p class="mb-3">Silahkan login dengan akun kamu</p>
+									<div class="mb-3">
+										<img src="<?= base_url(); ?>/assets/images/<?= $web['logo']; ?>" alt=""  width="40">
+									</div>
+									<h4 class="login fw-bold" style="font-size: calc(1.2875rem + 0.45vw);">Selamat Datang Admin</h4>
+									<p class="text-muted mb-3">Silahkan login dengan akun kamu</p>
 									<?= alert(); ?>
 									<form action="" method="POST">
 										<div class="form-group">
-											<label class="text-white">Username</label>
-											<input type="text" class="form-control" autocomplete="off" name="username">
+											<label>Username</label>
+											<input type="text" class="form-control" autocomplete="off" placeholder="Masukan Username" name="username">
 										</div>
 										<div class="form-group">
-											<label class="text-white">Password</label>
-											<input type="password" class="form-control" name="password">
+											<label>Password</label>
+											<input type="password" class="form-control" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" name="password">
 										</div>
 										<button class="btn btn-primary btn-block" type="submit" name="tombol" value="submit">Login Sekarang</button>
 									</form>

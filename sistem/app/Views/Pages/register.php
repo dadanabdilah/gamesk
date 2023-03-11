@@ -20,19 +20,19 @@
 
 					                    <form role="form" action="" method="POST">
 					                        <div class="form-group mb-2">
-					                            <p class="text-white">Username</p>
+					                            <p>Username</p>
 					                            <input type="text" name="username" class="form-control" required autocomplete="off">
 					                        </div>
 					                        <div class="form-group mb-2">
-					                            <p class="text-white">No. Whatsapp</p>
+					                            <p>No. Whatsapp</p>
 					                            <input type="number" name="wa" class="form-control" required autocomplete="off">
 					                        </div>
 					                        <div class="form-group mb-3">
-					                            <p class="text-white">Password</p>
+					                            <p>Password</p>
 					                            <input type="password" name="password" class="form-control" required>
 					                        </div>
 					                        <div class="form-group mb-3">
-					                            <p class="text-white">Ulangi Password</p>
+					                            <p>Ulangi Password</p>
 					                            <input type="password" name="passwordb" class="form-control" required>
 					                        </div>
 					                        <button type="submit" name="tombol" value="submit" class="btn btn-primary">Register Akun</button>

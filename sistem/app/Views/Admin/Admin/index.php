@@ -4,12 +4,12 @@
 				<div class="content">
 				    
 				    <div class="row">
-                                 <div class="col-lg-10 mx-auto">
+                                 <div class="col-lg-10 mt-4">
                                      <?= alert(); ?>
                                  <!-- Admin -->
                                  <div class="card shadow mb-4">
 								    <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary mb-3">Admin</h6>
+                                    <h5>Admin</h5>
                                     <div class="card-tools">
 										<a href="<?= base_url(); ?>/admin/admin/add" class="btn btn-primary btn-sm">Tambah Akun</a>
 									</div>
@@ -27,13 +27,19 @@
 												<td><?= $no++; ?></td>
 												<td><?= $loop['username']; ?></td>
 												<td><?= $loop['status']; ?></td>
-												<td width="10" class="d-flex">
-													<a href="<?= base_url(); ?>/admin/admin/edit/<?= $loop['id']; ?>" class="btn btn-primary btn-sm mr-2">
-													    <i class="fas fa-fw fa-edit"></i>
-													</a>
-													<button type="button" onclick="hapus('<?= base_url(); ?>/admin/admin/delete/<?= $loop['id']; ?>');" class="btn btn-danger btn-sm ms-2">
-													    <i class="fas fa-fw fa-trash"></i>
-													</button>
+												<td>
+													<div class="dropdown">
+                                                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                              <i class="ti ti-dots-vertical"></i>
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                              <a class="dropdown-item" href="<?= base_url(); ?>/admin/admin/edit/<?= $loop['id']; ?>"
+                                                                ><i class="ti ti-pencil me-1"></i> Edit</a
+                                                              >
+                                                              <a class="dropdown-item" onclick="hapus('<?= base_url(); ?>/admin/admin/delete/<?= $loop['id']; ?>');">
+                                                                  <i class="ti ti-trash me-1"></i> Delete</a>
+                                                            </div>
+                                                        </div>
 												</td>
 											</tr>
 											<?php endforeach ?>

@@ -27,12 +27,15 @@
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 
         <style>
+        
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&display=swap');
+            
             :root {
                 --warna: #edf2f7;
                 --warna_2: #ffff;
                 --warna_3: #16c92a;
-                --warna_4: #16c92a;
-                --warna_5: #EDF2F7;
+                --warna_4: rgba(22, 201, 42, 0.29);
             }
             body {
                 background: var(--warna);
@@ -66,18 +69,24 @@
                 color: #000;
             }
 
-            p, h3, h4, h5, a, span{
-                color : #000;
+            .h1, .h2, .h3, .h4, .h5, .h6, .a, .p .span, .label, h1, h2, h3, h4, h5, h6, a, p, span, label {
+                font-weight: 500;
+                color: #000;
+            }
+
+            .login {
+                font-weight: 700;
+                color: #5d596c;
+                font-family: 'Public Sans', sans-serif;
             }
 
             .btn-tab{
-                background-color : var(--warna_5);
+                background-color : var(--warna);
                 border: 1px solid var(--warna_3) ;
             }
 
             .btn-tab:not(:disabled):not(.disabled).active, .btn-tab:not(:disabled):not(.disabled):active, .show>.btn-tab.dropdown-toggle {
                 color: #fff;
-                background-color: #0a4875;
                 border-color: var(--warna_3);
                 background-color: var(--warna_3);
             }
@@ -145,7 +154,7 @@
                 border-radius: 5px;
             }
             .menu-user a:hover {
-                background: var(--warna_2);
+                background: var(--warna_3);
             }
             .menu-user a i {
                 font-size: 19px;
@@ -168,6 +177,7 @@
                 background: var(--warna_3);
             }
            .num-page {
+                font-family: 'Poppins', sans-serif;
                 width: 40px;
                 height: 40px;
                 border-radius: 12px 4px;
@@ -178,7 +188,11 @@
                 line-height: 40px;
                 float: left;
                 font-weight: 600;
-                padding-right: 
+            }
+            .intruction {
+                font-family: 'Poppons', sans-serif;
+                font-weight: 700;
+                color: #000;
             }
             .bg-footer {
                 background-color: var(--warna);
@@ -199,16 +213,22 @@
                 color: #000;
                 font-weight: 600px;
                 border: 1px solid var(--warna_3);
-                box-shadow: 5px 5px 3px rgb(213, 213, 213);
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
             }
             
             .radio-nominale:checked + label, .radio-nominal:checked + label {
-                background: var(--warna_3);
-                color: #fff;
+                
+                background: var(--warna_4);
+                color: #000;
                 border: 1px solid var(--warna_3);
             }
             /* end nominal */
-
+            
+            .num-produk {
+                font-size: 13px;
+                font-weight: 600;
+                color: #000;
+            }
             .rounded-top {
                 border-top-left-radius: var(--bs-border-radius)!important;
                 border-top-right-radius: var(--bs-border-radius)!important;
@@ -254,6 +274,7 @@
             }
             .menu-list li a:hover {
                 padding-left: 6px;
+                color: #fff;
             }
             .table-responsive::-webkit-scrollbar {
                 width: 0;
@@ -380,13 +401,71 @@
             /* game list */
             .mobile {
                 width: 90%;
-                background: rgba(22, 201, 42, 0.29);
-                backdrop-filter: blur(2.5px);
+                top: 62.27%;
+                bottom: 32.81%;
+                background: rgba(255, 255, 255, 0.3);
+                backdrop-filter: blur(1.5px);
                 border-radius: 5px;
                 font-weight: bold;
                 margin: 0 auto;
                 color : #fff;
                 font-size : 11px;
+            }
+            .game-populer {
+                filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.05));
+                border-radius: 3px;
+            }
+            .card-product {
+                transition: .3s;
+                background: rgba(22, 201, 42, 0.80);
+                backdrop-filter: blur(1.5px);
+                border-radius: 10px;
+                overflow: hidden;
+                cursor: pointer;
+                text-align: center;
+            }
+            .card-product .product-dsc {
+                padding: 6px;
+            }
+            .card-product p {
+                font-size: 10px;
+                line-height: 14px;
+                color: #fff;
+                font-weight: 600;
+            }
+            .card-product .product-title {
+                margin-top: 0;
+                margin-bottom: 0;
+                color: #fff;
+                text-shadow: #fff;
+                font-family: 'Poppins', sans-serif;
+                font-size: 14px;
+                font-weight: 800;
+            }
+            .card-product .product-title, .card-product p {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+            .card-product .btn {
+                width: 100%;
+                display: inline-block;
+                background: var(--warna_3);
+                backdrop-filter: blur(2px);
+                box-sizing: border-box;
+                border-radius: 10px;
+                text-align: center;
+                font-weight: 700;
+                font-size: 12px;
+                color: #fff;
+                padding: 5px;
+            }
+            .judul-web {
+                color: #000;
+                text-shadow: #000;
+                font-family: 'Poppins', sans-serif;
+                font-size: 30px;
+                font-weight: 800;
             }
         </style>
 
@@ -418,8 +497,7 @@
                                 </a>
                                 <?php if ($users == false): ?>
                                 <a class="nav-item nav-link <?= $menu_active == 'Login' ? 'active' : ''; ?>" href="<?= base_url(); ?>/login">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-plus"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle>
-                                    <line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-in"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
                                 Login Member
                                 </a>
                                 <?php endif ?>
@@ -429,7 +507,9 @@
                                     Administrator</a>
                                 <?php endif ?>
                                 <?php if ($users !== false): ?>
-                                    <a class="nav-item nav-link <?= $menu_active == 'User' ? 'active' : ''; ?>" href="<?= base_url(); ?>/user">User Area</a>
+                                    <a class="nav-item nav-link <?= $menu_active == 'User' ? 'active' : ''; ?>" href="<?= base_url(); ?>/user">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                    User Area</a>
                                 <?php endif ?>
                             </div>
                         </div>
@@ -446,27 +526,27 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-4 col-sm-3">
-                                    <div class="d-flex">
-                                        <img src="<?= base_url(); ?>/assets/images/<?= $web['logo']; ?>" height="40" alt="logo icon" class="mb-3">
-                                        <h5 class="mt-2 ml-1"><?= $web['title']; ?></h5>
+                                    <div class="mb-3 d-flex text-align-center">
+                                        <img src="<?= base_url(); ?>/assets/images/<?= $web['logo']; ?>" height="40" alt="logo icon">
+                                        <h5 class="mt-2 ml-2 judul-web"><?= $web['title']; ?></h5>
                                     </div>
                                     <?= $web['description']; ?>
                                 </div>
-                                <div class="col-lg-4 col-sm-6 mt-3">
+                                <div class="col-lg-4 col-sm-4 mt-3">
                                     <h5 class="pb-2">Games Terpopuler</h5>
                                     <div class="row">
                                         <?php foreach ($games_populer as $loop): ?>
                                             <?php if ($loop['status'] == 'On') { ?>
                                             <div class="col-4 p-2">
                                                 <a href="<?= base_url(); ?>/games/<?= $loop['slug']; ?>">
-                                                    <div style="background-image : url('<?= base_url(); ?>/assets/images/games/<?= $loop['image']; ?>'); background-size: cover; background-repeat: no-repeat; background-position: center; height : 60px; width : 120px;" class="game-populer rounded"></div>
+                                                    <img src="<?= base_url(); ?>/assets/images/games/<?= $loop['image']; ?>" alt="" width="100%" style="border-radius: 10px;">
                                                 </a>
                                             </div>
                                             <?php } ?>
                                         <?php endforeach ?>
                                     </div>
                                 </div>
-                                <div class="col-lg-4 col-sm-3 mt-3">
+                                <!--<div class="col-lg-4 col-sm-3 mt-3">
                                 <h5 class="pb-2">Metode Pembayaran</h5>
                                     <div class="payment-channels-track marquee ml-1">
                                         <marquee width="100%" direction="left" scrollamount="5">
@@ -490,7 +570,7 @@
                                             <img draggable="false" class="footer-pc-icon running-text ls-is-cached DSloaded rounded" data-src="<?= base_url() ?>/assets/images/footer/cimb.png" width="80" alt="cimb" loading="DS" src="<?= base_url() ?>/assets/images/footer/cimb.png">
                                         </marquee>
                                     </div>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                     </div>

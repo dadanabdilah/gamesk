@@ -3,33 +3,27 @@
 				<?php $this->section('content'); ?>
 				<div class="content">
 								<div class="row">
-									<div class="col-lg-10 mx-auto">
+									<div class="col-lg-8 mx-auto mt-4">
 									    <?= alert(); ?>
 										<div class="card shadow mb-4">
     								    <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary mb-3">Ubah Password</h6>
+                                        	<h5>Ubah Password</h5>
                                         </div>
                                         
 											<div class="card-body">
 												
 												<form action="" method="POST">
-													<div class="form-group row">
-														<label class="col-form-label text-dark col-md-4">Password Lama</label>
-														<div class="col-md-8">
-															<input type="password" class="form-control" autocomplete="off" name="passwordl">
-														</div>
+													<div class="mb-3">
+														<label for="defaultFormControlInput" class="form-label">Password Lama</label>
+														<input type="password" class="form-control" autocomplete="off" name="passwordl">
 													</div>
-													<div class="form-group row">
-														<label class="col-form-label text-dark col-md-4">Password Baru</label>
-														<div class="col-md-8">
-															<input type="password" class="form-control" autocomplete="off" name="passwordb">
-														</div>
+													<div class="mb-3">
+														<label for="defaultFormControlInput" class="form-label">Password Baru</label>
+														<input type="password" class="form-control" autocomplete="off" name="passwordb">
 													</div>
-													<div class="form-group row">
-														<label class="col-form-label text-dark col-md-4">Ulangi Password Baru</label>
-														<div class="col-md-8">
-															<input type="password" class="form-control" autocomplete="off" name="passwordbb">
-														</div>
+													<div class="mb-3">
+														<label for="defaultFormControlInput" class="form-label">Ulangi Password Baru</label>
+														<input type="password" class="form-control" autocomplete="off" name="passwordbb">
 													</div>
 													<div class="text-right">
 														<button class="btn text-dark" type="reset">Batal</button>

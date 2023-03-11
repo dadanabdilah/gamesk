@@ -6,30 +6,25 @@
 				<?php $this->section('content'); ?>
 
 								<div class="row">
-									<div class="col-lg-10 mx-auto">
+									<div class="col-lg-10 mt-4">
 									    <?= alert(); ?>
+									    <div class="card-header py-3">
+                                            <h5>Edit Harga Level</h5>
+                                        </div>
         								<div class="card shadow mb-4">
-        								    <div class="card-header py-3">
-                                                <h6 class="m-0 font-weight-bold text-primary">Edit Level</h6>
-                                            </div>
 											<div class="card-body">
-												
-												<form action="" method="POST" enctype="multipart/form-data">
-													<div class="form-group row">
-														<label class="col-form-label col-md-4 text-dark">Nama Level</label>
-														<div class="col-md-8">
-															<input type="text" name="level_name" class="form-control" autocomplete="off" value="<?= $level[0]['level_name']; ?>">
-														</div>
+											    <form action="" method="POST" enctype="multipart/form-data">
+													<div class="mb-3">
+														<label class="col-form-label">Nama Level</label>
+														<input type="text" name="level_name" class="form-control" autocomplete="off" value="<?= $level[0]['level_name']; ?>">
 													</div>
-													<div class="form-group row" id="tipe-manual">
-														<label class="col-form-label col-md-4 text-dark">Harga</label>
-														<div class="col-md-8">
-															<input type="number" class="form-control" autocomplete="off" name="price" value="<?= $level[0]['price']; ?>">
-														</div>
+													<div class="mb-3" id="tipe-manual">
+														<label class="col-form-label">Harga</label>
+														<input type="number" class="form-control" autocomplete="off" name="price" value="<?= $level[0]['price']; ?>">
 													</div>
-													<a href="<?= base_url(); ?>/admin/level" class="btn btn-warning float-left">Kembali</a>
-													<div class="text-right">
-														<button class="btn text-dark" type="reset">Batal</button>
+													
+													<div class="text-right mt-3">
+													    <a href="<?= base_url(); ?>/admin/level" class="btn btn-warning float-left">Kembali</a>
 														<button class="btn btn-primary" type="submit" name="tombol" value="submit">Simpan</button>
 													</div>
 												</form>

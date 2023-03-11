@@ -5,7 +5,7 @@
 				
 				<?php $this->section('content'); ?>
 						<div class="row">
-							<div class="col-lg-12 mx-auto">
+							<div class="col-lg-12 mt-4">
 
 								<div class="card shadow mb-4">
 								    <div class="card-header py-3">
@@ -13,26 +13,26 @@
                                     </div>
 									<div class="card-body">
 										<div class="card-tools">
-											<button class="btn btn-primary btn-sm text-right" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" type="button">Tambah Kategori</button>
+											<button class="btn btn-primary btn-sm text-right" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Tambah Kategori</button>
 										</div>
 										<div class="mt-4">
 											<div class="collapse" id="collapseExample">
 												<form action="" method="POST">
-													<div class="form-group row">
-														<label class="col-form-label text-dark col-md-4">Icon</label>
-														<div class="col-md-8">
+													<div class="mb-3">
+														<label for="defaultFormControlInput" class="form-label">Icon</label>
+														<div class="col-md-4">
 															<input type="text" class="form-control" autocomplete="off" name="icon">
 														</div>
 													</div>
-													<div class="form-group row">
-														<label class="col-form-label text-dark col-md-4">Kategori Baru</label>
-														<div class="col-md-8">
+													<div class="mb-3">
+														<label for="defaultFormControlInput" class="form-label">Kategori Baru</label>
+														<div class="col-md-4">
 															<input type="text" class="form-control" autocomplete="off" name="category">
 														</div>
 													</div>
-													<div class="form-group row">
-														<label class="col-form-label text-dark col-md-4">Urutan</label>
-														<div class="col-md-8">
+													<div class="mb-3">
+														<label for="defaultFormControlInput" class="form-label">Urutan</label>
+														<div class="col-md-4">
 															<input type="number" class="form-control" autocomplete="off" name="sort">
 														</div>
 													</div>
@@ -62,7 +62,6 @@
 														<div class="mr-2 pt-2">
 															<i class="<?= $loop['icon']; ?>"></i>
 														</div>
-														<input type="text" class="form-control" value="<?= $loop['icon']; ?>" style="width: 10px;" id="icon-<?= $loop['id']; ?>">
 													</div>
 												</td>
 												<td><?= $loop['category']; ?></td>

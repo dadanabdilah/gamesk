@@ -3,18 +3,18 @@
 				<?php $this->section('content'); ?>
 				<div class="content">
 						<div class="row">
-							<div class="col-lg-10 mx-auto">
+							<div class="col-lg-12 pt-4">
 							    <?= alert(); ?>
 								<div class="card shadow mb-4">
 								    <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary mb-3">Games</h6>
+                                    <h5>Daftar Games</h5>
                                     <div class="card-tools">
-										<a href="<?= base_url(); ?>/admin/games/add" class="btn btn-primary btn-sm">Tambah Games</a>
+										<a href="<?= base_url(); ?>/admin/games/add" class="btn btn-primary btn-sm"><i class="ti ti-plus me-md-2"></i> Tambah Games</a>
 									</div>
                                     </div>
 									<div class="table-responsive">
 										<table class="table-white table table-striped" id="datatable">
-    										<thead class="bg-primary text-white">
+    										<thead class="bg-white text-dark">
     										    <tr>
     												<th width="10">No</th>
     												<th>Games</th>
@@ -24,8 +24,9 @@
     												<th>Action</th>
     											</tr>
     										</thead>
+    										<?php $no = 1; foreach ($games as $loop): ?>
     										<tbody>
-    										    <?php $no = 1; foreach ($games as $loop): ?>
+    										    
     											<tr>
     												<td><?= $no++; ?></td>
     												<td>
@@ -35,17 +36,24 @@
     												<td><?= $loop['category']; ?></td>
     												<td><?= $loop['product']; ?> Produk</td>
     												<td><?= $loop['status']; ?></td>
-    												<td width="10" class="d-flex">
-    													<a href="<?= base_url(); ?>/admin/games/edit/<?= $loop['id']; ?>" class="btn btn-primary btn-sm mr-2">
-    													    <i class="fas fa-fw fa-edit"></i>
-    													</a>
-    													<button type="button" onclick="hapus('<?= base_url(); ?>/admin/games/delete/<?= $loop['id']; ?>');" class="btn btn-danger btn-sm ms-2">
-    													    <i class="fas fa-fw fa-trash"></i>
-    													</button>
+    												<td>
+    													<div class="dropdown">
+                                                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                              <i class="ti ti-dots-vertical"></i>
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                              <a class="dropdown-item" href="<?= base_url(); ?>/admin/games/edit/<?= $loop['id']; ?>"
+                                                                ><i class="ti ti-pencil me-1"></i> Edit</a
+                                                              >
+                                                              <a class="dropdown-item" onclick="hapus('<?= base_url(); ?>/admin/games/delete/<?= $loop['id']; ?>');">
+                                                                  <i class="ti ti-trash me-1"></i> Delete</a>
+                                                            </div>
+                                                        </div>
     												</td>
     											</tr>
-    											<?php endforeach ?>
+    											
     										</tbody>
+    										<?php endforeach ?>
 										</table>
 									</div>
 								</div>
@@ -56,6 +64,8 @@
 				
 				<?php $this->section('js'); ?>
 				<script>
-				    $("#datatable").DataTable();
+					$("datatable").DataTable({
+                    		ordering: false,
+                    	});
 				</script>
 				<?php $this->endSection(); ?>

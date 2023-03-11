@@ -6,33 +6,26 @@
 				<?php $this->section('content'); ?>
 
 								<div class="row">
-									<div class="col-lg-10 mx-auto">
+									<div class="col-lg-10 mt-4">
 									    <?= alert(); ?>
         								<div class="card shadow mb-4">
         								    <div class="card-header py-3">
-                                                <h6 class="m-0 font-weight-bold text-primary">Tambah Bantuan</h6>
+                                                <h5>Tambah Bantuan</h5>
                                             </div>
 											<div class="card-body">
 												
 												<form action="" method="POST" enctype="multipart/form-data">
-													<div class="form-group row">
-														<label class="col-form-label col-md-4 text-dark">Gambar</label>
-														<div class="col-md-8">
-														    <div class="custom-file">
-														        <input type="file" class="custom-file-input" id="customFile" name="image">
-														        <label class="custom-file-label" for="customFile">Choose file</label>
-														    </div>
-														</div>
+													 <div class="mb-3">
+														<label for="formFile" class="form-label">Pilih Gambar</label>
+														<input class="form-control" type="file" id="formFile" name="image"/>
 													</div>
-													<div class="form-group row">
-														<label class="col-form-label col-md-4 text-dark">Link</label>
-														<div class="col-md-8">
-															<input type="url" class="form-control" autocomplete="off" name="link">
-														</div>
+													<div class="mb-3">
+														<label for="defaultFormControlInput" class="form-label">Link</label>
+														<input type="url" class="form-control" autocomplete="off" name="link">
 													</div>
-													<a href="<?= base_url(); ?>/admin/sosmed" class="btn btn-warning float-left">Kembali</a>
+													
 													<div class="text-right">
-														<button class="btn text-dark" type="reset">Batal</button>
+														<a href="<?= base_url(); ?>/admin/sosmed" class="btn btn-warning float-left">Kembali</a>
 														<button class="btn btn-primary" type="submit" name="tombol" value="submit">Simpan</button>
 													</div>
 												</form>

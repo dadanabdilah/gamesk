@@ -6,43 +6,25 @@
 				<?php $this->section('content'); ?>
 				
 						<div class="row">
-							<div class="col-lg-10 mx-auto">
-
-								<div class="card shadow mb-4">
-								    <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Pesanan</h6>
-                                    </div>
-									<div class="card-body">
-										<b class="d-block mb-1">Keterangan Status</b>
-										<ul class="mb-0 pl-4">
-											<li><b>Pending</b> : Pesanan belum dibayar / menunggu pembayaran</li>
-											<li><b>Processing</b> : Pesanan dalam proses oleh provider / manual</li>
-											<li><b>Success</b> : Pesanan telah berhasil diproses</li>
-											<li><b>Canceled</b> : Pesanan gagal diproses</li>
-											<li><b>Expired</b> : Pesanan gagal / expired</li>
-										</ul>
-										
-										<?= alert(); ?>
-										
-										<hr>
-										<button class="btn btn-primary" type="button" onclick="filter_pesanan('Otomatis');">Semua</button>
-										<button class="btn btn-primary" type="button" onclick="filter_pesanan('Otomatis');">Otomatis</button>
-										<button class="btn btn-primary" type="button" onclick="filter_pesanan('Manual');">Manual</button>
-									</div>
-									<div class="table-responsive">
-										<table class="table-white table table-striped" id="datatable">
-    										<thead>
-    										    <tr class="bg-primary text-white">
-    												<th>No</th>
-    												<th>No Transaksi</th>
-    												<th>Produk</th>
-    												<th>Metode</th>
-    												<th>Provider</th>
-    												<th>Status</th>
-    												<th>Action</th>
-    											</tr>
-    										</thead>
-    										<tbody>
+							<div class="col-lg-12 mt-4">
+							    
+							    <!-- Row grouping -->
+                                      <div class="card shadow pt-4 mb-4">
+                                        <h5 class="card-header">Pesanan</h5>
+                                        <div class="card-datatable table-responsive">
+                                          <table class="dt-row-grouping table" id="datatable">
+                                            <thead>
+                                              <tr>
+                                                <th>No</th>
+                                                <th>No Transaksi</th>
+                                                <th>Produk</th>
+                                                <th>Metode</th>
+                                                <th>Provider</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
     										    <?php $no = 1; foreach ($orders as $loop): ?>
     											<tr class="<?= $loop['status']; ?> <?= $loop['provider']; ?> all-orders">
     												<td><?= $no++; ?></td>
@@ -63,36 +45,62 @@
     												<td><?= $loop['provider']; ?></td>
     												<td><?= $loop['status']; ?></td>
     												<td>
-    													<a href="<?= base_url(); ?>/admin/pesanan/edit/<?= $loop['id']; ?>" class="btn btn-primary btn-sm">
-    													    <i class="fas fa-fw fa-edit"></i>
-    													</a>
-    													<button type="button" onclick="hapus('<?= base_url(); ?>/admin/pesanan/delete/<?= $loop['id']; ?>');" class="btn btn-danger btn-sm">
-    													    <i class="fas fa-fw fa-trash"></i>
-    													</button>
+    												    <div class="dropdown">
+                                                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                              <i class="ti ti-dots-vertical"></i>
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                              <a class="dropdown-item" href="<?= base_url(); ?>/admin/pesanan/edit/<?= $loop['id']; ?>"
+                                                                ><i class="ti ti-pencil me-1"></i> Edit</a
+                                                              >
+                                                              <a class="dropdown-item" onclick="hapus('<?= base_url(); ?>/admin/pesanan/delete/<?= $loop['id']; ?>');">
+                                                                  <i class="ti ti-trash me-1"></i> Delete</a>
+                                                            </div>
+                                                        </div>
     												</td>
     											</tr>
     											<?php endforeach ?>
     										</tbody>
-										</table>
-									</div>
-								</div>
+                                            <tfoot>
+                                              <tr>
+                                                <th>No</th>
+                                                <th>No Transaksi</th>
+                                                <th>Produk</th>
+                                                <th>Metode</th>
+                                                <th>Provider</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                              </tr>
+                                            </tfoot>
+                                          </table>
+                                        </div>
+                                      </div>
+                                      <!--/ Row grouping -->
 							</div>
 						</div>
 				<?php $this->endSection(); ?>
 				
 				<?php $this->section('js'); ?>
 				<div class="modal fade" id="modal-detail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-				    <div class="modal-dialog" role="document">
+				    <div class="modal-dialog modal-dialog-centered" role="document">
 				        <div class="modal-content" style="">
 				            <div class="modal-header">
 				                <h5 class="modal-title" id="exampleModalLabel">Detail Pesanan</h5>
-				                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				                    <span aria-hidden="true">&times;</span>
-				                </button>
+				                <button
+                                  type="button"
+                                  class="btn-close"
+                                  data-bs-dismiss="modal"
+                                  aria-label="Close"
+                                ></button>
 				            </div>
 				            <div class="modal-body p-0">
 				            	
 				            </div>
+				            <div class="modal-footer">
+                                <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">
+                                  Close
+                                </button>
+                              </div>
 				        </div>
 				    </div>
 				</div>
